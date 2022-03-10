@@ -106,6 +106,7 @@ void registration(void) {
 	l.password[i] = '\0';
 
     fprintf(log, "%s %s", l.username, l.password);
+    // fwrite(&l, sizeof(l), 1, log);
     fclose(log);
     // printf("\nConfirming details...\n...\nWelcome, %s!\n\n", name);
     printf("\nRegistration Successful!\n");

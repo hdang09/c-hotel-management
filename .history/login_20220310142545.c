@@ -24,7 +24,7 @@ void login(void) {
     fflush(stdin);
 
     printf("Username:  ");
-    scanf("%s", &username);
+    fgets(username, 30, stdin);
     printf("\nPassword: ");
     // fgets(password, 30, stdin);
     while (i < 30) {
@@ -44,9 +44,12 @@ void login(void) {
         char * token = strtok(line, " ");
         if (token != NULL) strcpy(l.username, token);
 
-        token = strtok(NULL, "");
+        token = strtok(NULL, " ");
         if (token != NULL) strcpy(l.password, token);
     }
+
+    printf("\n%d", strcmp(username, l.username));
+    printf("\n%d", strcmp(password, l.password));
 
     if (strcmp(username, l.username) == 0 && strcmp(password, l.password) == 0)  
             printf("\nSuccessful Login\n");
@@ -106,6 +109,7 @@ void registration(void) {
 	l.password[i] = '\0';
 
     fprintf(log, "%s %s", l.username, l.password);
+    // fwrite(&l, sizeof(l), 1, log);
     fclose(log);
     // printf("\nConfirming details...\n...\nWelcome, %s!\n\n", name);
     printf("\nRegistration Successful!\n");
