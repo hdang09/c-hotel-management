@@ -1,0 +1,161 @@
+
+** ROOM 10 ** 
+ Period days 10
+ Checkin 10/10/2021 
+ checkout 20/10/2021 
+ 
+Person 1 
+ >>----------<< 
+ fullname: 5 
+ Birthday(mm/dd/yyyy): 5/0/0 
+ Sex: 5 
+ Phone number: 5 
+ Email: 5
+Person 2 
+ >>----------<< 
+ fullname: 2 
+ Birthday(mm/dd/yyyy): 5/0/0 
+ Sex: 5 
+ Phone number: 5 
+ Email: 5
+
+Services in use 
+ Service 1 	 Service 2 	 Service 3 	 Service 4 	 Service 5 
+ NO                NO                NO                NO                YES                
+ Total pay: 9000000
+** ROOM 11 ** 
+ Period days 5
+ Checkin 5/0/0 
+ checkout 5/0/0 
+ 
+Person 1 
+ >>----------<< 
+ fullname: 5 
+ Birthday(mm/dd/yyyy): 5/0/0 
+ Sex: 5 
+ Phone number: 5 
+ Email: 5
+
+Services in use 
+ Service 1 	 Service 2 	 Service 3 	 Service 4 	 Service 5 
+ NO                NO                NO                YES                NO                
+ Total pay: 3500000
+** ROOM 15 ** 
+ Period days 5
+ Checkin 5/0/0 
+ checkout 5/0/0 
+ 
+Person 1 
+ >>----------<< 
+ fullname: 5 
+ Birthday(mm/dd/yyyy): 5/0/0 
+ Sex: 5 
+ Phone number: 5 
+ Email: 5
+
+Services in use 
+ Service 1 	 Service 2 	 Service 3 	 Service 4 	 Service 5 
+ YES                NO                NO                NO                NO                
+ Total pay: 3000000
+
+
+** ROOM 10 ** 
+ Period days 4
+ Checkin 0/0/0 
+ checkout 0/0/0 
+ 
+Person 1 
+ >>----------<< 
+ fullname: =5 
+ Birthday(mm/dd/yyyy): 5/0/0 
+ Sex: 5 
+ Phone number: 5 
+ Email: 5
+Person 1 
+ >>----------<< 
+ fullname: 5 
+ Birthday(mm/dd/yyyy): 5/0/0 
+ Sex: 5 
+ Phone number: 5 
+ Email: 5
+
+Services in use 
+ Service 1 	 Service 2 	 Service 3 	 Service 4 	 Service 5 
+ NO                NO                NO                NO                NO                
+ Total pay: 2000000
+
+
+** ROOM 15 ** 
+ Period days 5
+ Checkin 5/0/0 
+ checkout 5/0/0 
+ 
+Person 1 
+ >>----------<< 
+ fullname: 5 
+ Birthday(mm/dd/yyyy): 5/0/0 
+ Sex: 5 
+ Phone number: 5 
+ Email: 5
+
+Services in use 
+ Service 1 	 Service 2 	 Service 3 	 Service 4 	 Service 5 
+ NO                NO                NO                NO                NO                
+ Total pay: 2500000
+
+
+** ROOM 5 ** 
+ Period days 15
+ Checkin 5/0/0 
+ checkout 5/0/0 
+ 
+Person 1 
+ >>----------<< 
+ fullname: 5 
+ Birthday(mm/dd/yyyy): 5/0/0 
+ Sex: 5 
+ Phone number: 5 
+ Email: 5
+
+Services in use 
+ Service 1 	 Service 2 	 Service 3 	 Service 4 	 Service 5 
+ NO                NO                NO                NO                NO                
+ Total pay: 7500000
+
+
+** ROOM 20 ** 
+ Period days 10
+ Checkin 2/5/2021 
+ checkout 12/5/2021 
+ 
+Person 1 
+ >>----------<< 
+ fullname: 5 
+ Birthday(mm/dd/yyyy): 5/0/0 
+ Sex: 5 
+ Phone number: 5 
+ Email: 5
+
+Services in use 
+ Service 1 	 Service 2 	 Service 3 	 Service 4 	 Service 5 
+ NO                NO                NO                NO                NO                
+ Total pay: 5000000
+
+
+** ROOM 10 ** 
+ Period days 5
+ Checkin 5/0/0 
+ checkout 5/0/0 
+ 
+Person 1 
+ >>----------<< 
+ fullname: 5 
+ Birthday(mm/dd/yyyy): 5/0/0 
+ Sex: 5 
+ Phone number: 5 
+ Email: 5
+
+Services in use 
+ Service 1 	 Service 2 	 Service 3 	 Service 4 	 Service 5 
+ NO                NO                NO                YES                NO                
+ Total pay: 3500000

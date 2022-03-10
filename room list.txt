@@ -1,0 +1,270 @@
+
+
+
+** ROOM 1 ** 
+ Period days 15
+ Checkin 45/45/4678 
+ checkout 4/47/4564 
+ 
+Person 1 
+ >>----------<< 
+ fullname: safsf 
+ Birthday(mm/dd/yyyy): 45/45/4548 
+ Sex: F 
+ Phone number: 12345678 
+ Email: afsdfasdf
+
+Services in use 
+ Service 1 	 Service 2 	 Service 3 	 Service 4 	 Service 5 
+ YES                YES                NO                YES                NO                
+ Total pay: 13500000
+
+
+** ROOM 2 ** 
+ Period days 45
+ Checkin 45/46/5464 
+ checkout 12/78/7845 
+ 
+Person 1 
+ >>----------<< 
+ fullname: asdfadf 
+ Birthday(mm/dd/yyyy): 12/87/78754 
+ Sex: F 
+ Phone number: 13265456 
+ Email: asdfadsf
+
+Services in use 
+ Service 1 	 Service 2 	 Service 3 	 Service 4 	 Service 5 
+ YES                YES                YES                NO                YES                
+ Total pay: 58500000
+Person 2 
+ >>----------<< 
+ fullname: adfadfasd 
+ Birthday(mm/dd/yyyy): 15/45/8761 
+ Sex: M 
+ Phone number: 4654564 
+ Email: adfafadf
+
+Services in use 
+ Service 1 	 Service 2 	 Service 3 	 Service 4 	 Service 5 
+ YES                YES                YES                NO                YES                
+ Total pay: 58500000
+
+
+** ROOM 8 ** 
+ Period days 10
+ Checkin 12/55/1654 
+ checkout 89/58/1245 
+ 
+Person 1 
+ >>----------<< 
+ fullname: sdfafaf 
+ Birthday(mm/dd/yyyy): 12/8/8548 
+ Sex: F 
+ Phone number: 46546546 
+ Email: asdfadsfa
+
+Services in use 
+ Service 1 	 Service 2 	 Service 3 	 Service 4 	 Service 5 
+ YES                NO                YES                YES                NO                
+ Total pay: 10000000
+Person 2 
+ >>----------<< 
+ fullname: asdfasdf 
+ Birthday(mm/dd/yyyy): 12/86/9864 
+ Sex: M 
+ Phone number: 543543545 
+ Email: asdfasdfas
+
+Services in use 
+ Service 1 	 Service 2 	 Service 3 	 Service 4 	 Service 5 
+ YES                NO                YES                YES                NO                
+ Total pay: 10000000
+
+
+** ROOM 16 ** 
+ Period days 45
+ Checkin 12/52/5525 
+ checkout 15/89/1547 
+ 
+Person 1 
+ >>----------<< 
+ fullname: asdfasdf 
+ Birthday(mm/dd/yyyy): 45/85/7847 
+ Sex: M 
+ Phone number: 34344354 
+ Email: asdfasdf
+
+Services in use 
+ Service 1 	 Service 2 	 Service 3 	 Service 4 	 Service 5 
+ YES                NO                YES                YES                YES                
+ Total pay: 63000000
+
+
+** ROOM 18 ** 
+ Period days 10
+ Checkin 10/25/5214 
+ checkout 23/25/8978 
+ 
+
+Services in use 
+ Service 1 	 Service 2 	 Service 3 	 Service 4 	 Service 5 
+ YES                YES                YES                YES                YES                
+ Total pay: 15000000
+
+
+** ROOM 20 ** 
+ Period days 10
+ Checkin 12/52/1325 
+ checkout 12/85/4654 
+ 
+
+Services in use 
+ Service 1 	 Service 2 	 Service 3 	 Service 4 	 Service 5 
+ YES                YES                NO                YES                NO                
+ Total pay: 9000000
+
+Services in use 
+ Service 1 	 Service 2 	 Service 3 	 Service 4 	 Service 5 
+ YES                YES                NO                YES                NO                
+ Total pay: 9000000
+
+
+** ROOM 15 ** 
+ Period days 10
+ Checkin 12/85/1321 
+ checkout 18/52/7984 
+ 
+
+Services in use 
+ Service 1 	 Service 2 	 Service 3 	 Service 4 	 Service 5 
+ YES                YES                NO                YES                YES                
+ Total pay: 13000000
+
+Services in use 
+ Service 1 	 Service 2 	 Service 3 	 Service 4 	 Service 5 
+ YES                YES                NO                YES                YES                
+ Total pay: 13000000
+
+
+** ROOM 10 ** 
+ Period days 10
+ Checkin 12/85/8584 
+ checkout 12/85/8548 
+ 
+
+Services in use 
+ Service 1 	 Service 2 	 Service 3 	 Service 4 	 Service 5 
+ YES                NO                YES                NO                YES                
+ Total pay: 12000000
+
+Services in use 
+ Service 1 	 Service 2 	 Service 3 	 Service 4 	 Service 5 
+ YES                NO                YES                NO                YES                
+ Total pay: 12000000
+
+
+** ROOM 8 ** 
+ Period days 5
+ Checkin 5/8/8 
+ checkout 8/8/8 
+ 
+
+Services in use 
+ Service 1 	 Service 2 	 Service 3 	 Service 4 	 Service 5 
+ YES                NO                YES                NO                YES                
+ Total pay: 6000000
+
+
+** ROOM 10 ** 
+ Period days 5
+ Checkin 5/8/8 
+ checkout 8/9/8 
+ 
+
+Services in use 
+ Service 1 	 Service 2 	 Service 3 	 Service 4 	 Service 5 
+ YES                NO                NO                YES                NO                
+ Total pay: 4000000
+
+
+** ROOM 16 ** 
+ Period days 10
+ Checkin 8/8/9 
+ checkout 9/8/7 
+ 
+
+Services in use 
+ Service 1 	 Service 2 	 Service 3 	 Service 4 	 Service 5 
+ YES                NO                YES                YES                YES                
+ Total pay: 14000000
+
+
+** ROOM 15 ** 
+ Period days 15
+ Checkin 12/8/2021 
+ checkout 15/8/2021 
+ 
+
+Services in use 
+ Service 1 	 Service 2 	 Service 3 	 Service 4 	 Service 5 
+ YES                NO                YES                NO                YES                
+ Total pay: 18000000
+
+Services in use 
+ Service 1 	 Service 2 	 Service 3 	 Service 4 	 Service 5 
+ YES                NO                YES                NO                YES                
+ Total pay: 18000000
+
+
+** ROOM 15 ** 
+ Period days 10
+ Checkin 15/8/2021 
+ checkout 15/8/2021 
+ 
+
+Services in use 
+ Service 1 	 Service 2 	 Service 3 	 Service 4 	 Service 5 
+ YES                NO                YES                YES                YES                
+ Total pay: 14000000
+
+
+** ROOM 16 ** 
+ Period days 10
+ Checkin 15/4/2021 
+ checkout 14/8/2021 
+ 
+
+Services in use 
+ Service 1 	 Service 2 	 Service 3 	 Service 4 	 Service 5 
+ NO                YES                NO                YES                YES                
+ Total pay: 12000000
+
+Services in use 
+ Service 1 	 Service 2 	 Service 3 	 Service 4 	 Service 5 
+ NO                YES                NO                YES                YES                
+ Total pay: 12000000
+
+
+** ROOM 9 ** 
+ Period days 10
+ Checkin 15/9/2021 
+ checkout 16/8/2021 
+ 
+
+Services in use 
+ Service 1 	 Service 2 	 Service 3 	 Service 4 	 Service 5 
+ YES                NO                YES                NO                YES                
+ Total pay: 12000000
+
+
+** ROOM 8 ** 
+ Period days 10
+ Checkin 15/8/2021 
+ checkout 16/8/2021 
+ 
+
+Services in use 
+ Service 1 	 Service 2 	 Service 3 	 Service 4 	 Service 5 
+ NO                NO                NO                NO                NO                
+ Total pay: 0
