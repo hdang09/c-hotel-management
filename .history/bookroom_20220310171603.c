@@ -54,8 +54,7 @@ void bookroom() {
  
 void add (int h, int i) { 
    fp = fopen("room list.txt", "a"); 
-   fp2 = fopen("room list 2.txt", "a"); 
-	if (fp == 0 || fp2 == 0) {
+	if (fp == 0) {
     	fp = fopen("room list.txt", "a");
     //	system("cls");
 	    printf("Please hold on while we set our database in your computer !!");
