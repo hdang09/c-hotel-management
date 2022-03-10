@@ -24,7 +24,7 @@ void login(void) {
     fflush(stdin);
 
     printf("Username:  ");
-    fgets(username, 30, stdin);
+    scanf("%s", &username);
     printf("\nPassword: ");
     // fgets(password, 30, stdin);
     while (i < 30) {
@@ -44,7 +44,7 @@ void login(void) {
         char * token = strtok(line, " ");
         if (token != NULL) strcpy(l.username, token);
 
-        token = strtok(NULL, " ");
+        token = strtok(NULL, "");
         if (token != NULL) strcpy(l.password, token);
     }
 

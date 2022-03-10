@@ -23,7 +23,7 @@ void home() {
 	system("cls");
     printf("Press '1' to Register\nPress '2' to Login\n\n");
     scanf("%d", &option);
-    getchar();           // catching newline
+    getchar();
 
     if (option == 1)
         {
