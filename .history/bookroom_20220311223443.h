@@ -228,7 +228,7 @@ void add (int h, int i) {
         printf("\nEmail:  ");
         scanf("%s", &roomnumber[i].client.email);
 
-		fprintf(fp, "%d, %d, %d/%d/%d, %d/%d/%d,", 
+		fprintf(fp, "%d, %d, %d/%d/%d, %d/%d/%d, ", 
 		roomnumber[i].id_room,
 		roomnumber[i].longstay,
 		roomnumber[i].checkin.dd, roomnumber[i].checkin.mm, roomnumber[i].checkin.yy,

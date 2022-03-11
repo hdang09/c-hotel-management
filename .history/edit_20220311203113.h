@@ -17,6 +17,8 @@ void edit()
 
     // Loop each line
     while (fgets(line, sizeof(line), f)) {
+		if (line == "") break;
+		
 		// Copy a new string from line to line2
 		strcpy(line2, line);
 
@@ -37,6 +39,7 @@ void edit()
 		token = strtok(NULL, ", ");
 		s.checkin2.yy = strtol(token, NULL, 10);
 
+
 		// - Get checkout
 		token = strtok(NULL, "/");
 		s.checkout2.dd = strtol(token, NULL, 10);
@@ -46,7 +49,7 @@ void edit()
 		s.checkout2.yy = strtol(token, NULL, 10);
 		
 		// - Get name
-		token =  strtok(NULL, ",");
+		token =  strtok(NULL, ", ");
 		if (token != NULL) strcpy(s.name2, token);
 
 		// - Get birthday

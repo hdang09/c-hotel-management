@@ -9,7 +9,7 @@ typedef struct {
 typedef struct {
 	char name[50];
 	date birth;
-	char sex[1];
+	char sex[20];
 	int phone[15];
 	char email[100];	
 } client_detail;
@@ -61,7 +61,7 @@ struct room_hotel {
 	int longstay2;
 	date checkin2;
 	date checkout2;
-	char name2[500];
+	char name2[50];
 	date birth2;
 	char sex2[1];
 	int phone2;
@@ -81,14 +81,8 @@ void home();
 void view();
 //void write(struct room_hotel *roomnumber);
 void write();
-void registration(void);
-void mainMenu();
-void cancel();
-void search();
-void edit();
-void exiting();
 
  //Global variables
-int h, i, k, num, isValid = 0, ch;
+int h, i, ch, k, num, isValid = 0;
 int cost_service[5];
 FILE *fp, *fp2;

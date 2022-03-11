@@ -9,6 +9,7 @@ typedef struct {
 typedef struct {
 	char name[50];
 	date birth;
+	//char sex;
 	char sex[1];
 	int phone[15];
 	char email[100];	

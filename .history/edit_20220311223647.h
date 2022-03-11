@@ -17,6 +17,8 @@ void edit()
 
     // Loop each line
     while (fgets(line, sizeof(line), f)) {
+		if (line == "") break;
+		
 		// Copy a new string from line to line2
 		strcpy(line2, line);
 
