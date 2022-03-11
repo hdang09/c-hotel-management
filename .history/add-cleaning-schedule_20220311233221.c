@@ -6,12 +6,12 @@
 #include<time.h>
 #include <string.h>
  
-struct CustomerDetails2   //STRUCTURE DECLARATION
+struct CustomerDetails   //STRUCTURE DECLARATION
 {
     char roomCleaning[10];
     char dateCleaning[10];
     char timeCleaning[10];
-} clean;
+} h;
  
 void addCleaningSchedule() {
     FILE *c;
@@ -29,13 +29,13 @@ void addCleaningSchedule() {
         printf("ROOM CLEANING SCHEDULE");
         printf("***************************");
         printf("\nRoom need to cleaned: \n");
-        scanf("%s", clean.roomCleaning);
+        scanf("%s",h.roomCleaning);
         fflush(stdin);
         printf("\nDate for cleaning: \n");
-        scanf("%s", clean.dateCleaning);
+        scanf("%s",h.dateCleaning);
         printf("\nTime for cleaning: \n");
-        scanf("%s", clean.timeCleaning);
-        fwrite(&clean, sizeof(clean), 1, c);
+        scanf("%s",h.timeCleaning);
+        fwrite(&s,sizeof(s),1,c);
         fflush(stdin);
         printf("\n\nAdd room cleaning schedule is successfully booked !!");
         printf("\n Press esc key to exit,  any other key to add another customer detail:");
@@ -57,8 +57,8 @@ void showCleaningSchedule() {
     printf("Date for cleaning\t");
     printf("Time for cleaning\t\n");
    
-    while(fread(&clean, sizeof(clean), 1, c)==1) {
-        printf(" \n%s \t%s \t\t %s\n",  clean.roomCleaning,  clean.dateCleaning,  clean.timeCleaning);
+    while(fread(&s,sizeof(s),1,c)==1) {
+        printf(" \n%s \t%s \t\t %s\n", h.roomCleaning, h.dateCleaning, h.timeCleaning);
     }
    
     fclose(c);

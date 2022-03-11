@@ -52,14 +52,14 @@ void mainMenu() {
 			system("cls"); 
 			edit();
 			break;
-		case '6': 
-			system("cls");
-			addCleaningSchedule();
-			break;
-		case '7':
-			system("cls");
-			showCleaningSchedule();
-			break;
+		// case '6': 
+		// 	system("cls");
+		// 	addCleaningSchedule();
+		// 	break;
+		// case '7':
+		// 	system("cls");
+		// 	showCleaningSchedule();
+		// 	break;
 		case '8':
 			system("cls");
 			exiting();

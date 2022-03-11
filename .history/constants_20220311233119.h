@@ -87,8 +87,6 @@ void cancel();
 void search();
 void edit();
 void exiting();
-void addCleaningSchedule();
-void showCleaningSchedule();
 
  //Global variables
 int h, i, k, num, isValid = 0, ch;

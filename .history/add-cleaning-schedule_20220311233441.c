@@ -35,7 +35,7 @@ void addCleaningSchedule() {
         scanf("%s", clean.dateCleaning);
         printf("\nTime for cleaning: \n");
         scanf("%s", clean.timeCleaning);
-        fwrite(&clean, sizeof(clean), 1, c);
+        fwrite(&h,sizeof(h),1,c);
         fflush(stdin);
         printf("\n\nAdd room cleaning schedule is successfully booked !!");
         printf("\n Press esc key to exit,  any other key to add another customer detail:");
@@ -57,7 +57,7 @@ void showCleaningSchedule() {
     printf("Date for cleaning\t");
     printf("Time for cleaning\t\n");
    
-    while(fread(&clean, sizeof(clean), 1, c)==1) {
+    while(fread(&h,sizeof(h),1,c)==1) {
         printf(" \n%s \t%s \t\t %s\n",  clean.roomCleaning,  clean.dateCleaning,  clean.timeCleaning);
     }
    
