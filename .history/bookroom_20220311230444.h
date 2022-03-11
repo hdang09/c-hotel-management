@@ -158,6 +158,7 @@ void add (int h, int i) {
 	int a = 1;
 		while (a <= 5){ 
 			scanf("%d", &roomnumber[i].service_in_use[a]);
+			fprintf(fp, "%d, ", roomnumber[i].service_in_use[a]);   	    			
 			if (roomnumber[i].service_in_use[a] == 1 ) {			
 				cost_service[a] = list_service[a - 1].price_service;
 			} else {
@@ -264,15 +265,9 @@ void add (int h, int i) {
         printf("\n\nDo you want to add one more people press \"Y\" \n If NO press \"N\"");      	     		
         printf("\nY/N >>>  ");
         ch = getch();
-        if (ch == 'N' || ch == 'n') {
-			for (int i = 0; i < 5; i++)
-				fprintf(fp, "%d, ", roomnumber[i].service_in_use[a]);   	    			
-
-			roomnumber[i].total_pay = roomnumber[i].longstay * (cost_room[h].price_per_night + cost_service[1] + cost_service[2] + cost_service[3] + cost_service[4] + cost_service[5] );
-			// Print total pay to "room-list.txt"	
-			fprintf(fp, "%d\n", roomnumber[i].total_pay);
+        if (ch == 'N' || ch == 'n')
 		  	break; 
-		} else if (ch == 'Y' || ch == 'y') {
+       	if (ch == 'Y' || ch == 'y') {
          	roomnumber[i].numclient++;
      	    if (roomnumber[i].numclient > cost_room[h].max_people) {
      	       	printf("Sorry the room has max people !\n");
@@ -280,14 +275,13 @@ void add (int h, int i) {
     	   }
     	}
 
-		for (int i = 0; i < 5; i++)
-			fprintf(fp, "%d, ", roomnumber[i].service_in_use[a]);   	    			
+		
 
-		roomnumber[i].total_pay = roomnumber[i].longstay * (cost_room[h].price_per_night + cost_service[1] + cost_service[2] + cost_service[3] + cost_service[4] + cost_service[5] );
-		// Print total pay to "room-list.txt"	
-		fprintf(fp, "%d\n", roomnumber[i].total_pay);
    } 
 
+	roomnumber[i].total_pay = roomnumber[i].longstay * (cost_room[h].price_per_night + cost_service[1] + cost_service[2] + cost_service[3] + cost_service[4] + cost_service[5] );
+	// Print total pay to "room-list.txt"	
+	fprintf(fp, "%d\n", roomnumber[i].total_pay);
 	
 	//Print total pay to screen
 	printf("\nYour total bill: %d VND ", roomnumber[i].total_pay );  

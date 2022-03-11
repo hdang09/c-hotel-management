@@ -264,7 +264,7 @@ void add (int h, int i) {
         printf("\n\nDo you want to add one more people press \"Y\" \n If NO press \"N\"");      	     		
         printf("\nY/N >>>  ");
         ch = getch();
-        if (ch == 'N' || ch == 'n') {
+        if (ch == 'N' || ch == 'n')
 			for (int i = 0; i < 5; i++)
 				fprintf(fp, "%d, ", roomnumber[i].service_in_use[a]);   	    			
 
@@ -272,7 +272,7 @@ void add (int h, int i) {
 			// Print total pay to "room-list.txt"	
 			fprintf(fp, "%d\n", roomnumber[i].total_pay);
 		  	break; 
-		} else if (ch == 'Y' || ch == 'y') {
+       	if (ch == 'Y' || ch == 'y') {
          	roomnumber[i].numclient++;
      	    if (roomnumber[i].numclient > cost_room[h].max_people) {
      	       	printf("Sorry the room has max people !\n");

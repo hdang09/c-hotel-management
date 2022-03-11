@@ -272,7 +272,8 @@ void add (int h, int i) {
 			// Print total pay to "room-list.txt"	
 			fprintf(fp, "%d\n", roomnumber[i].total_pay);
 		  	break; 
-		} else if (ch == 'Y' || ch == 'y') {
+		}
+       	if (ch == 'Y' || ch == 'y') {
          	roomnumber[i].numclient++;
      	    if (roomnumber[i].numclient > cost_room[h].max_people) {
      	       	printf("Sorry the room has max people !\n");
