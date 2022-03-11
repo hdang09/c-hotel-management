@@ -51,14 +51,14 @@ struct room_hotel {
  	date checkin;
  	date checkout; 
  	int service_in_use[5];
- 	int status  ; //0: available -  1: full
+ 	int status  ; //1 : available -  0: full
  	int total_pay; 	 	
  } roomnumber[21]; // The number of a room is 20 room
 
 //Declare PROTOTYPES
 void roomstatus(struct room_hotel *roomnumber);
 void add(int h, int i);
-int pay(struct room_hotel *roomnumber, int h);
+int pay(struct room_hotel *roomnumber);
 void view_all_room_has_book();
 void view_services_in_use();
 void home();

@@ -51,7 +51,7 @@ struct room_hotel {
  	date checkin;
  	date checkout; 
  	int service_in_use[5];
- 	int status  ; //0: available -  1: full
+ 	int status  ; //1 : available -  0: full
  	int total_pay; 	 	
  } roomnumber[21]; // The number of a room is 20 room
 

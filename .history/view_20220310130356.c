@@ -29,7 +29,7 @@ void view() {
 	FILE *fp;
 //	fp = NULL;
 	char arr[100000];
-	fp = fopen("room list.txt", "r+");
+	fp = fopen("room list 2.txt", "r+");
 
 //	int cost
 

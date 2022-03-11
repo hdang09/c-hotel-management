@@ -13,7 +13,7 @@ void search() {
     FILE *f;
     char roomNumber[20];
     int flag = 1;
-    f = fopen("room list.txt","r+");
+    f = fopen("room list 2.txt","r+");
     if(f == 0)
         exit(0);
     fflush(stdin);

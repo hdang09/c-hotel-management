@@ -307,7 +307,7 @@ int pay(struct room_hotel *roomnumber, int h) {
 	int a = 1;
 	while (a <= 5){    	    			
 		fprintf(fp, "%d, ", roomnumber[i].service_in_use[a]);
-		if (roomnumber[i].service_in_use[a] == 1 ) {
+		if (roomnumber[i].service_in_use[a] == 1 ){
 			cost_service[a] = list_service[a - 1].price_service;
 		}
 		else {
@@ -350,7 +350,7 @@ void roomstatus(struct room_hotel *roomnumber){
 		pc = roomnumber[i].status == 1 ? "NO" : "YES";	
 		printf("\t %d  \t%s        %d                  %s  \t%s  \t%s\n", i,  cost_room[1].type, cost_room[1].price_per_night, pc, roomnumber[i].checkin, roomnumber[i].checkout);
 	}
-	for (i = 11; i <= 15; ++i){
+	for (i = 10; i <= 15; ++i){
 		pc = roomnumber[i].status == 1 ? "NO" : "YES";	
 		printf("\t %d  \t%s        %d                  %s  \t%s  \t%s\n", i,  cost_room[2].type, cost_room[2].price_per_night, pc, roomnumber[i].checkin, roomnumber[i].checkout );
 	}

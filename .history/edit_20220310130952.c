@@ -11,7 +11,7 @@ void edit()
 {
     system("cls");
     FILE *f, *t;
-    f = fopen("room list.txt", "r");
+    f = fopen("room list 2.txt", "r");
     t = fopen("temp.txt", "w");
     if (f == NULL) exit(0);
 
@@ -228,7 +228,7 @@ void edit()
     fclose(f);
     fclose(t);
     remove("room list 2.txt");
-    rename("temp.txt", "room list.txt");
+    rename("temp.txt", "room list 2.txt");
 
     // Go back to main menu
     printf("Press any key to go back to main menu");

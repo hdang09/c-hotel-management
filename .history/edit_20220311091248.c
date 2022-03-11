@@ -11,7 +11,7 @@ void edit()
 {
     system("cls");
     FILE *f, *t;
-    f = fopen("room list.txt", "r");
+    f = fopen("room list 2.txt", "r");
     t = fopen("temp.txt", "w");
     if (f == NULL) exit(0);
 

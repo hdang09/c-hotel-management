@@ -53,8 +53,8 @@ void bookroom() {
 }
  
 void add (int h, int i) { 
-   fp = fopen("room list.txt", "a+"); 
-	if (fp == 0) {
+   fp = fopen("room list 2.txt", "a+"); 
+	if (fp == 0 || fp2 == 0) {
     	fp = fopen("room list.txt", "a+");
     //	system("cls");
 	    printf("Please hold on while we set our database in your computer !!");
@@ -149,6 +149,12 @@ void add (int h, int i) {
 	}
       
     printf("\n--------------------------------------------------");
+    
+	fprintf(fp,"\n\n\n** ROOM %d ** \n Period days %d\n Checkin %d/%d/%d \n checkout %d/%d/%d \n ",
+	roomnumber[i].id_room,
+	roomnumber[i].longstay,
+	roomnumber[i].checkin.dd, roomnumber[i].checkin.mm, roomnumber[i].checkin.yy,
+	roomnumber[i].checkout.dd, roomnumber[i].checkout.mm, roomnumber[i].checkout.yy);
 
 	printf("---------------------------------------------");
      		
@@ -162,7 +168,7 @@ void add (int h, int i) {
     printf("\nNote: if you choose service 1 and 2 just type \" 1_1_0_0_0 \" with \"_\" mean space, \"0\" mean you don't want \n");
     printf("Your option: ");
     int a = 1;
-    while (a <= 5) {
+    while (a <= 5){
        	scanf("%d", &roomnumber[i].service_in_use[a]);
        	a++;
     }		
@@ -256,13 +262,13 @@ void add (int h, int i) {
         printf("\nEmail:  ");
         scanf("%s", &roomnumber[i].client.email);
 
-		fprintf(fp, "%d, %d, %d/%d/%d, %d/%d/%d, ", 
+		fprintf(fp2, "%d, %d, %d/%d/%d, %d/%d/%d, ", 
 		roomnumber[i].id_room,
 		roomnumber[i].longstay,
 		roomnumber[i].checkin.dd, roomnumber[i].checkin.mm, roomnumber[i].checkin.yy,
 		roomnumber[i].checkout.dd, roomnumber[i].checkout.mm, roomnumber[i].checkout.yy);
 
-		fprintf(fp, "%s, %d/%d/%d, %s, %s, %s, ", 
+		fprintf(fp2, "%s, %d/%d/%d, %s, %s, %s, ", 
 	    roomnumber[i].client.name,
 	    roomnumber[i].client.birth.dd, roomnumber[i].client.birth.mm, roomnumber[i].client.birth.yy,
 	    roomnumber[i].client.sex,
@@ -270,8 +276,9 @@ void add (int h, int i) {
 	    roomnumber[i].client.email);   
 	    
 
-		roomnumber[i].total_pay = pay(roomnumber, h);	
-		fprintf(fp,"%d\n", roomnumber[i].total_pay);
+		roomnumber[i].total_pay = pay(roomnumber);	
+		fprintf(fp,"\n Total pay: %d", roomnumber[i].total_pay);
+		fprintf(fp2,"%d\n", roomnumber[i].total_pay);
 
         printf("\n\nDo you want to add one more people press \"Y\" \n If NO press \"N\"");      	     		
         printf("\nY/N >>>  ");
@@ -291,6 +298,7 @@ void add (int h, int i) {
 	//calculate totalpay
     printf("\nYour total bill: %d VND ", roomnumber[i].total_pay ); 
 	fclose(fp);	
+	fclose(fp2);	
     
     roomnumber[i].status= 1; // chuyen status tu 0 ve 1
     printf("Succesfully requested booking\n");
@@ -302,17 +310,20 @@ void add (int h, int i) {
 	mainMenu();
 }
 
-int pay(struct room_hotel *roomnumber, int h) {
+int pay(struct room_hotel *roomnumber){
 	int payy;
 	int a = 1;
+	fprintf(fp,"\n\nServices in use \n Service 1 \t Service 2 \t Service 3 \t Service 4 \t Service 5 \n ");
 	while (a <= 5){    	    			
-		fprintf(fp, "%d, ", roomnumber[i].service_in_use[a]);
-		if (roomnumber[i].service_in_use[a] == 1 ) {
+		fprintf(fp2, "%d, ", roomnumber[i].service_in_use[a]);
+		if(roomnumber[i].service_in_use[a] == 1 ){
 			cost_service[a] = list_service[a - 1].price_service;
+		    fprintf(fp,"YES                ");
 		}
-		else {
+		else{
 			cost_service[a]= 0;
-		}
+			fprintf(fp,"NO                ");		
+			    }
 		a++;    					
 	}
 
@@ -324,7 +335,7 @@ int pay(struct room_hotel *roomnumber, int h) {
 void roomstatus(struct room_hotel *roomnumber){
 	char *pc;
 	FILE *f;
-	f = fopen("room list.txt", "r");
+	f = fopen("room list 2.txt", "r");
 
 	int lineLength = 255, roomNum;
     char line[lineLength], line2[lineLength]; /* not ISO 90 compatible */
@@ -332,11 +343,12 @@ void roomstatus(struct room_hotel *roomnumber){
 	// Read file to assign room.status = 1
     while (fgets(line, sizeof(line), f)) {
 		if (line == "") break;
+		// Copy a new string from line to line2
+		for (int i = 0; i < strlen(line); i++) line2[i] = line[i];
 
 		// Split string with delimeters to struct
 		char * token = strtok(line, ", ");
 		roomNum = strtol(token, NULL, 10);
-
 		roomnumber[roomNum].status = 1;
 	}
 	fclose(f);
@@ -350,7 +362,7 @@ void roomstatus(struct room_hotel *roomnumber){
 		pc = roomnumber[i].status == 1 ? "NO" : "YES";	
 		printf("\t %d  \t%s        %d                  %s  \t%s  \t%s\n", i,  cost_room[1].type, cost_room[1].price_per_night, pc, roomnumber[i].checkin, roomnumber[i].checkout);
 	}
-	for (i = 11; i <= 15; ++i){
+	for (i = 10; i <= 15; ++i){
 		pc = roomnumber[i].status == 1 ? "NO" : "YES";	
 		printf("\t %d  \t%s        %d                  %s  \t%s  \t%s\n", i,  cost_room[2].type, cost_room[2].price_per_night, pc, roomnumber[i].checkin, roomnumber[i].checkout );
 	}

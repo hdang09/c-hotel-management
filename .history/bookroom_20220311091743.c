@@ -271,6 +271,7 @@ void add (int h, int i) {
 	    
 
 		roomnumber[i].total_pay = pay(roomnumber, h);	
+		fprintf(fp,"\n Total pay: %d", roomnumber[i].total_pay);
 		fprintf(fp,"%d\n", roomnumber[i].total_pay);
 
         printf("\n\nDo you want to add one more people press \"Y\" \n If NO press \"N\"");      	     		
@@ -305,14 +306,17 @@ void add (int h, int i) {
 int pay(struct room_hotel *roomnumber, int h) {
 	int payy;
 	int a = 1;
+	fprintf(fp, "\n\nServices in use \n Service 1 \t Service 2 \t Service 3 \t Service 4 \t Service 5 \n ");
 	while (a <= 5){    	    			
 		fprintf(fp, "%d, ", roomnumber[i].service_in_use[a]);
-		if (roomnumber[i].service_in_use[a] == 1 ) {
+		if(roomnumber[i].service_in_use[a] == 1 ){
 			cost_service[a] = list_service[a - 1].price_service;
+		    // fprintf(fp,"YES                ");
 		}
-		else {
+		else{
 			cost_service[a]= 0;
-		}
+			// fprintf(fp,"NO                ");		
+			    }
 		a++;    					
 	}
 
@@ -332,11 +336,12 @@ void roomstatus(struct room_hotel *roomnumber){
 	// Read file to assign room.status = 1
     while (fgets(line, sizeof(line), f)) {
 		if (line == "") break;
+		// Copy a new string from line to line2
+		for (int i = 0; i < strlen(line); i++) line2[i] = line[i];
 
 		// Split string with delimeters to struct
 		char * token = strtok(line, ", ");
 		roomNum = strtol(token, NULL, 10);
-
 		roomnumber[roomNum].status = 1;
 	}
 	fclose(f);
@@ -350,7 +355,7 @@ void roomstatus(struct room_hotel *roomnumber){
 		pc = roomnumber[i].status == 1 ? "NO" : "YES";	
 		printf("\t %d  \t%s        %d                  %s  \t%s  \t%s\n", i,  cost_room[1].type, cost_room[1].price_per_night, pc, roomnumber[i].checkin, roomnumber[i].checkout);
 	}
-	for (i = 11; i <= 15; ++i){
+	for (i = 10; i <= 15; ++i){
 		pc = roomnumber[i].status == 1 ? "NO" : "YES";	
 		printf("\t %d  \t%s        %d                  %s  \t%s  \t%s\n", i,  cost_room[2].type, cost_room[2].price_per_night, pc, roomnumber[i].checkin, roomnumber[i].checkout );
 	}
