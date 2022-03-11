@@ -1,17 +1,8 @@
-#include <stdio.h>
-#include <conio.h>
-#include <ctype.h>
-#include <windows.h>
-#include <stdlib.h>
-#include <time.h>
-#include <string.h>
-
-
 void edit()
 {
     system("cls");
     FILE *f, *t;
-    f = fopen("room list.txt", "r");
+    f = fopen("room-list.txt", "r");
     t = fopen("temp.txt", "w");
     if (f == NULL) exit(0);
 
@@ -227,8 +218,8 @@ void edit()
     //	File handling
     fclose(f);
     fclose(t);
-    remove("room list 2.txt");
-    rename("temp.txt", "room list.txt");
+    remove("room-list.txt");
+    rename("temp.txt", "room-list.txt");
 
     // Go back to main menu
     printf("Press any key to go back to main menu");

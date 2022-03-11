@@ -55,32 +55,17 @@ struct room_hotel {
  	int total_pay; 	 	
  } roomnumber[21]; // The number of a room is 20 room
 
- struct CustomerDetails   //STRUCTURE DECLARATION
-{
-	int room2;
-	int longstay2;
-	date checkin2;
-	date checkout2;
-	char name2[50];
-	date birth2;
-	char sex2[1];
-	int phone2;
-	char email2[100];	
-	int service_in_use2[5];
-	int total_pay2; 	 
-} s;
-
 //Declare PROTOTYPES
 void roomstatus(struct room_hotel *roomnumber);
 void add(int h, int i);
 int pay(struct room_hotel *roomnumber, int h);
-void bookroom();
 void view_all_room_has_book();
 void view_services_in_use();
 void home();
 void view();
 //void write(struct room_hotel *roomnumber);
 void write();
+void bookroom();
 
  //Global variables
 int h, i, ch, k, num, isValid = 0;

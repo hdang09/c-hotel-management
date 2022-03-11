@@ -53,9 +53,9 @@ void bookroom() {
 }
  
 void add (int h, int i) { 
-   fp = fopen("room-list.txt", "a+"); 
+   fp = fopen("room list.txt", "a+"); 
 	if (fp == 0) {
-    	fp = fopen("room-list.txt", "a+");
+    	fp = fopen("room list.txt", "a+");
     //	system("cls");
 	    printf("Please hold on while we set our database in your computer !!");
 	    printf("\n Process completed press any key to continue !!");
@@ -269,21 +269,8 @@ void add (int h, int i) {
 	    roomnumber[i].client.phone,
 	    roomnumber[i].client.email);   
 	    
-		// ============================================== pay() function ==============================================
-		int a = 1;
-		while (a <= 5){    	    			
-			fprintf(fp, "%d, ", roomnumber[i].service_in_use[a]);
-			if (roomnumber[i].service_in_use[a] == 1 ) {
-				cost_service[a] = list_service[a - 1].price_service;
-			} else {
-				cost_service[a] = 0;
-			}
-			a++;    					
-		}
 
-		roomnumber[i].total_pay = roomnumber[i].longstay * (cost_room[h].price_per_night + cost_service[1] + cost_service[2] + cost_service[3] + cost_service[4] + cost_service[5] );
-		// ============================================== pay() function ==============================================
-		// roomnumber[i].total_pay = pay(roomnumber, h);	
+		roomnumber[i].total_pay = pay(roomnumber, h);	
 		fprintf(fp,"%d\n", roomnumber[i].total_pay);
 
         printf("\n\nDo you want to add one more people press \"Y\" \n If NO press \"N\"");      	     		
@@ -338,7 +325,7 @@ void add (int h, int i) {
 void roomstatus(struct room_hotel *roomnumber){
 	char *pc;
 	FILE *f;
-	f = fopen("room-list.txt", "r");
+	f = fopen("room list.txt", "r");
 
 	int lineLength = 255, roomNum;
     char line[lineLength], line2[lineLength]; /* not ISO 90 compatible */

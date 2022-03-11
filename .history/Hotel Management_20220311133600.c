@@ -11,11 +11,11 @@
 #include "login.c"
 #include "main-menu.c"
 #include "bookroom.c"
-#include "cancel.h"
+#include "cancel.c"
 //#include "delete-customer.c"
-#include "edit.h"
+#include "edit.c"
 #include "exit.c"
-#include "search.h"
+#include "search.c"
 #include "view.c"
 
 void home() {

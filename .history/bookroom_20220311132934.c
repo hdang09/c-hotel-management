@@ -53,9 +53,9 @@ void bookroom() {
 }
  
 void add (int h, int i) { 
-   fp = fopen("room-list.txt", "a+"); 
+   fp = fopen("room list.txt", "a+"); 
 	if (fp == 0) {
-    	fp = fopen("room-list.txt", "a+");
+    	fp = fopen("room list.txt", "a+");
     //	system("cls");
 	    printf("Please hold on while we set our database in your computer !!");
 	    printf("\n Process completed press any key to continue !!");
@@ -338,7 +338,7 @@ void add (int h, int i) {
 void roomstatus(struct room_hotel *roomnumber){
 	char *pc;
 	FILE *f;
-	f = fopen("room-list.txt", "r");
+	f = fopen("room list.txt", "r");
 
 	int lineLength = 255, roomNum;
     char line[lineLength], line2[lineLength]; /* not ISO 90 compatible */
