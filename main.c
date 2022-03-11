@@ -39,16 +39,16 @@ void home() {
 	char choice;
 	system("cls");   // FOR CLEARING SCREEN
 	setcolor(15);
-	printf("___________________________________________________________________________\n");
-	printf("|                                                                         |\n");      
-	printf("|                                                                         |\n");
-	printf("|  OOOOOO   OOOOOO OOOOOO OOOOOO OOOOOO OOOOOO O      O OOOOOOO  OOOOOO   |\n");
-	printf("|  O        O    O O      O        O      O    O O    O O        O        |\n");
-	printf("|  O  OOOOO OOOOOO OOOOO  OOOOO    O      O    O  O   O O  OOOOO OOOOOO   |\n");
-	printf("|  O    O   O  O   O      O        O      O    O   O  O O    O        O   |\n");
-	printf("|  OOOOOO   O   O  OOOOOO OOOOOO   O    OOOOOO O    O O OOOOOO   OOOOOO   |\n");
-	printf("|                                                                         |\n");                       
-	printf("|_________________________________________________________________________|\n");
+	printf("__________________________________________________________________________________\n");
+	printf("|                                                                                 |\n");      
+	printf("|                                                                                 |\n");
+	printf("|  OOOOOO    OOOOOO  OOOOOO  OOOOOO  OOOOOO  OOOOOO  O      O  OOOOOOO   OOOOOO   |\n");
+	printf("|  O         O    O  O       O         O       O     O O    O  O         O        |\n");
+	printf("|  O  OOOOO  OOOOOO  OOOOO   OOOOO     O       O     O  O   O  O  OOOOO  OOOOOO   |\n");
+	printf("|  O    O    O  O    O       O         O       O     O   O  O  O    O         O   |\n");
+	printf("|  OOOOOO    O   O   OOOOOO  OOOOOO    O     OOOOOO  O    O O  OOOOOO    OOOOOO   |\n");
+	printf("|                                                                                 |\n");                       
+	printf("|_________________________________________________________________________________|\n");
 	setcolor(9);
 	printf("\t\t*************************************************\n");
 	printf("\t\t*                                               *\n");
