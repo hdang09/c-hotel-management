@@ -100,7 +100,7 @@ void edit()
             
             printf("\n\nEnter your fullname: ");
             fflush(stdin);
-            gets(s.name2);
+            gets(roomnumber[i].client.name);
 
             // Validate birthday
             isValid = 0;

@@ -97,7 +97,6 @@ void edit()
             // scanf("%d/%d/%d",  &s.checkin2.dd,  &s.checkin2.mm,  &s.checkin2.yy);
             // printf("\nEnter day you checkout (dd/mm/yy): " );
             // scanf("%d/%d/%d",  &s.checkout2.dd,  &s.checkout2.mm,  &s.checkout2.yy );
-            
             printf("\n\nEnter your fullname: ");
             fflush(stdin);
             gets(s.name2);

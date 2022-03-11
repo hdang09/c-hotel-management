@@ -33,7 +33,7 @@ void view() {
 		s.checkout2.mm = strtol(token, NULL, 10);
 		token = strtok(NULL, ", ");
 		s.checkout2.yy = strtol(token, NULL, 10);
-		printf("\nCheck out yy: %d", s.checkout2.yy);
+		printf("\nCheck out dd: %d", s.checkout2.yy);
 		
 		token =  strtok(NULL, ", ");
 		// fgets(token, sizeof(token), strtok(NULL, ", "));
@@ -42,10 +42,9 @@ void view() {
 
 		token = strtok(NULL, "/");
 		s.birth2.dd = strtol(token, NULL, 10);
-		printf("\nBirth dd: %s", token);
+		printf("\nBirth dd: %d", s.birth2.dd);
 		token = strtok(NULL, "/");
 		s.birth2.mm = strtol(token, NULL, 10);
-
 		token = strtok(NULL, ", ");
 		s.birth2.yy = strtol(token, NULL, 10);
 
