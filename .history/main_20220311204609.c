@@ -10,7 +10,7 @@
 #define home main
 
 #include "constants.h"
-// #include "add-cleaning-schedule.c"
+#include "add-cleaning-schedule.c"
 #include "login.h"
 #include "main-menu.h"
 #include "bookroom.h"
