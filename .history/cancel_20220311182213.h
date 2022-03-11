@@ -104,7 +104,7 @@ void cancel() {
 		else 
 			printf("The room that you input doesn't exist\n");
 
-		// File handling
+		//File handling
 		fclose(f);
 		fclose(t);
 		remove("room-list.txt");

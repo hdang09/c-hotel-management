@@ -21,7 +21,7 @@ void cancel() {
 	// Loop each line
     while (fgets(line, sizeof(line), f)) {
 		if (line == "") break;
-
+		
 		// Copy a new string from line to line2
 		strcpy(line2, line);
 
@@ -42,6 +42,7 @@ void cancel() {
 		token = strtok(NULL, ", ");
 		s.checkin2.yy = strtol(token, NULL, 10);
 
+		
 		// - Get checkout
 		token = strtok(NULL, "/");
 		s.checkout2.dd = strtol(token, NULL, 10);
@@ -49,6 +50,7 @@ void cancel() {
 		s.checkout2.mm = strtol(token, NULL, 10);
 		token = strtok(NULL, ", ");
 		s.checkout2.yy = strtol(token, NULL, 10);
+		
 		
 		// - Get name
 		token =  strtok(NULL, ", ");
@@ -104,7 +106,7 @@ void cancel() {
 		else 
 			printf("The room that you input doesn't exist\n");
 
-		// File handling
+		//	File handling
 		fclose(f);
 		fclose(t);
 		remove("room-list.txt");

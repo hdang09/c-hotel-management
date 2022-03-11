@@ -55,7 +55,7 @@ struct room_hotel {
  	int total_pay; 	 	
  } roomnumber[21]; // The number of a room is 20 room
 
- struct CustomerDetails   //STRUCTURE DECLARATION
+ struct CustomerDetails   //Speacial structure for handling "room-list.txt"
 {
 	int room2;
 	int longstay2;

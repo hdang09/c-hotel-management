@@ -1,7 +1,8 @@
 void bookroom() {
 	char ch;
 	int i;
-    //SET AVAILABLE ROOM
+
+    //Set id for each room
     for (i = 1; i <= 20; ++i) roomnumber[i].id_room = i;
 	roomstatus(roomnumber);
 	  
@@ -13,14 +14,13 @@ void bookroom() {
 	};
     	
    	//Check status of this room
-	if(roomnumber[i].status == 1 || i > 20 || i < 1) {
+	if (roomnumber[i].status == 1 || i > 20 || i < 1) {
 		printf("The room you choose is not available now or have been booked !\n");
 		printf("\nPlease pick another room >>   \n\n");
 		printf("Return to home press --> \"H\" \nPick another room press --> \"A\" \n >> ");
 	    ch = getch();
 		if(ch == 'h' || ch == 'H'){
-//			system("cls"); // clear screan
-			home();// write code to return to home of hotel 		
+			home();
 		}
     }
 	if (ch == 'a' || ch == 'A') goto RUN1;
