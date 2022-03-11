@@ -171,17 +171,24 @@ void add (int h, int i) {
 	   		
 		printf("\n>>----Person %d----<<\n", roomnumber[i].numclient );
 
-		printf("\n\nEnter your fullname: ");
-		fflush(stdin);
-		gets(roomnumber[i].client.name);
-		// gets(roomnumber[i].client.name, sizeof(roomnumber[i].client.name), stdin);
-		// roomnumber[i].client.name[strlen(roomnumber[i].client.name)] = '\0';
+		// Validate name
+		isValid = 0;
+		while (!isValid) {
+			// Input
+			printf("\n\nEnter your fullname: ");
+			fflush(stdin);
+
+			isValid = scanf("%50[a-zA-Z]", roomnumber[i].client.name);
+
+			// Notification
+			!isValid ? printf("Your input is unvalid. Please try again!\n") : 0;
+		}
 
 		// Validate birthday
 		isValid = 0;
 		while (!isValid) {
 			// Input
-			printf("\nBirthday (dd/mm/yyyy): ");
+			printf("\nBirthday (dd/mm/yyyy):");
 			fflush(stdin);
 			scanf("%d/%d/%d", &roomnumber[i].client.birth.dd, &roomnumber[i].client.birth.mm, &roomnumber[i].client.birth.yy);
 			int day = roomnumber[i].client.birth.dd;

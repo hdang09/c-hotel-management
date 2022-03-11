@@ -173,15 +173,13 @@ void add (int h, int i) {
 
 		printf("\n\nEnter your fullname: ");
 		fflush(stdin);
-		gets(roomnumber[i].client.name);
-		// gets(roomnumber[i].client.name, sizeof(roomnumber[i].client.name), stdin);
-		// roomnumber[i].client.name[strlen(roomnumber[i].client.name)] = '\0';
+		fgets(roomnumber[i].client.name, sizeof(roomnumber[i].client.name), stdin);
 
 		// Validate birthday
 		isValid = 0;
 		while (!isValid) {
 			// Input
-			printf("\nBirthday (dd/mm/yyyy): ");
+			printf("\nBirthday (dd/mm/yyyy):");
 			fflush(stdin);
 			scanf("%d/%d/%d", &roomnumber[i].client.birth.dd, &roomnumber[i].client.birth.mm, &roomnumber[i].client.birth.yy);
 			int day = roomnumber[i].client.birth.dd;

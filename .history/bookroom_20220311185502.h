@@ -173,9 +173,7 @@ void add (int h, int i) {
 
 		printf("\n\nEnter your fullname: ");
 		fflush(stdin);
-		gets(roomnumber[i].client.name);
-		// gets(roomnumber[i].client.name, sizeof(roomnumber[i].client.name), stdin);
-		// roomnumber[i].client.name[strlen(roomnumber[i].client.name)] = '\0';
+		fgets(roomnumber[i].client.name, sizeof(roomnumber[i].client.name), stdin);
 
 		// Validate birthday
 		isValid = 0;

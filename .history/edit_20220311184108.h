@@ -227,7 +227,7 @@ void edit()
     fclose(f);
     fclose(t);
     remove("room-list.txt");
-    rename("temp.txt", "room-list.txt");
+    rename("temp.txt", "roomList.txt");
 
     // Go back to main menu
     printf("Press any key to go back to main menu");

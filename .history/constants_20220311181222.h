@@ -86,3 +86,4 @@ void write();
 int h, i, ch, k, num, isValid = 0;
 int cost_service[5];
 FILE *fp, *fp2;
+#define home main

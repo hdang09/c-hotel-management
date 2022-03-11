@@ -6,17 +6,15 @@
 #include <time.h>
 #include <string.h>
 
-#define home main
-
 #include "constants.h"
-//#include "add-cleaning-schedule.c"
-#include "login.h"
+//#include "add-cleaning-schedule.h"
 #include "main-menu.h"
 #include "bookroom.h"
 #include "cancel.h"
-//#include "delete-customer.c"
-#include "edit.h"
+//#include "delete-customer.h"
+#include "edit.h"  
 #include "exit.h"
+#include "login.h"
 #include "search.h"
 #include "view.h"
 

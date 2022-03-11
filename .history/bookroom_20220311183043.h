@@ -4,7 +4,48 @@ void bookroom() {
 
     //Set id for each room
     for (i = 1; i <= 20; ++i) roomnumber[i].id_room = i;
-	roomstatus(roomnumber);
+
+		// ============================================== roomstatus() function ==============================================
+	// roomstatus(roomnumber);
+	char *pc;
+	FILE *f;
+	f = fopen("room-list.txt", "r");
+
+	int lineLength = 255, roomNum;
+    char line[lineLength], line2[lineLength]; /* not ISO 90 compatible */
+
+	// Read file to assign room.status = 1
+    while (fgets(line, sizeof(line), f)) {
+		if (line == "") break;
+
+		// Split string with delimeters to struct
+		// - Get room number
+		char * token = strtok(line, ", ");
+		roomNum = strtol(token, NULL, 10);
+
+		roomnumber[roomNum].status = 1;
+	}
+	fclose(f);
+
+    printf("\t\n\tRoom   \t  Category  \tPrice per night  \tAvailable  \tCheckin  \tChekout\n");				
+	for (i = 1; i <= 5; ++i){
+		pc = roomnumber[i].status == 1 ? "NO" : "YES";	
+		printf("\t %d  \t%s        %d                  %s  \t%s  \t%s\n", i,  cost_room[0].type, cost_room[0].price_per_night, pc, roomnumber[i].checkin, roomnumber[i].checkout );
+	}
+	for (i = 6; i <= 10; ++i){
+		pc = roomnumber[i].status == 1 ? "NO" : "YES";	
+		printf("\t %d  \t%s        %d                  %s  \t%s  \t%s\n", i,  cost_room[1].type, cost_room[1].price_per_night, pc, roomnumber[i].checkin, roomnumber[i].checkout);
+	}
+	for (i = 11; i <= 15; ++i){
+		pc = roomnumber[i].status == 1 ? "NO" : "YES";	
+		printf("\t %d  \t%s        %d                  %s  \t%s  \t%s\n", i,  cost_room[2].type, cost_room[2].price_per_night, pc, roomnumber[i].checkin, roomnumber[i].checkout );
+	}
+	for (i = 16; i <= 20; ++i) {
+		pc = roomnumber[i].status == 1 ? "NO" : "YES";	
+		printf("\t %d  \t%s        %d                 %s  \t%s  \t%s\n", i,  cost_room[3].type, cost_room[3].price_per_night, pc, roomnumber[i].checkin, roomnumber[i].checkout );
+	}
+		// ============================================== =============================================================
+
 	  
     //Pick room
     RUN1: {
@@ -171,17 +212,24 @@ void add (int h, int i) {
 	   		
 		printf("\n>>----Person %d----<<\n", roomnumber[i].numclient );
 
-		printf("\n\nEnter your fullname: ");
-		fflush(stdin);
-		gets(roomnumber[i].client.name);
-		// gets(roomnumber[i].client.name, sizeof(roomnumber[i].client.name), stdin);
-		// roomnumber[i].client.name[strlen(roomnumber[i].client.name)] = '\0';
+		// Validate name
+		isValid = 0;
+		while (!isValid) {
+			// Input
+			printf("\n\nEnter your fullname: ");
+			fflush(stdin);
+
+			isValid = scanf("%50[a-zA-Z]", &roomnumber[i].client.name);
+
+			// Notification
+			!isValid ? printf("Your input is unvalid. Please try again!\n") : 0;
+		}
 
 		// Validate birthday
 		isValid = 0;
 		while (!isValid) {
 			// Input
-			printf("\nBirthday (dd/mm/yyyy): ");
+			printf("\nBirthday (dd/mm/yyyy):");
 			fflush(stdin);
 			scanf("%d/%d/%d", &roomnumber[i].client.birth.dd, &roomnumber[i].client.birth.mm, &roomnumber[i].client.birth.yy);
 			int day = roomnumber[i].client.birth.dd;
@@ -305,42 +353,42 @@ void add (int h, int i) {
 }
 
 
-void roomstatus(struct room_hotel *roomnumber){
-	char *pc;
-	FILE *f;
-	f = fopen("room-list.txt", "r");
+// void roomstatus(struct room_hotel *roomnumber){
+// 	char *pc;
+// 	FILE *f;
+// 	f = fopen("room-list.txt", "r");
 
-	int lineLength = 255, roomNum;
-    char line[lineLength], line2[lineLength]; /* not ISO 90 compatible */
+// 	int lineLength = 255, roomNum;
+//     char line[lineLength], line2[lineLength]; /* not ISO 90 compatible */
 
-	// Read file to assign room.status = 1
-    while (fgets(line, sizeof(line), f)) {
-		if (line == "") break;
+// 	// Read file to assign room.status = 1
+//     while (fgets(line, sizeof(line), f)) {
+// 		if (line == "") break;
 
-		// Split string with delimeters to struct
-		// - Get room number
-		char * token = strtok(line, ", ");
-		roomNum = strtol(token, NULL, 10);
+// 		// Split string with delimeters to struct
+// 		// - Get room number
+// 		char * token = strtok(line, ", ");
+// 		roomNum = strtol(token, NULL, 10);
 
-		roomnumber[roomNum].status = 1;
-	}
-	fclose(f);
+// 		roomnumber[roomNum].status = 1;
+// 	}
+// 	fclose(f);
 
-    printf("\t\n\tRoom   \t  Category  \tPrice per night  \tAvailable  \tCheckin  \tChekout\n");				
-	for (i = 1; i <= 5; ++i){
-		pc = roomnumber[i].status == 1 ? "NO" : "YES";	
-		printf("\t %d  \t%s        %d                  %s  \t%s  \t%s\n", i,  cost_room[0].type, cost_room[0].price_per_night, pc, roomnumber[i].checkin, roomnumber[i].checkout );
-	}
-	for (i = 6; i <= 10; ++i){
-		pc = roomnumber[i].status == 1 ? "NO" : "YES";	
-		printf("\t %d  \t%s        %d                  %s  \t%s  \t%s\n", i,  cost_room[1].type, cost_room[1].price_per_night, pc, roomnumber[i].checkin, roomnumber[i].checkout);
-	}
-	for (i = 11; i <= 15; ++i){
-		pc = roomnumber[i].status == 1 ? "NO" : "YES";	
-		printf("\t %d  \t%s        %d                  %s  \t%s  \t%s\n", i,  cost_room[2].type, cost_room[2].price_per_night, pc, roomnumber[i].checkin, roomnumber[i].checkout );
-	}
-	for (i = 16; i <= 20; ++i) {
-		pc = roomnumber[i].status == 1 ? "NO" : "YES";	
-		printf("\t %d  \t%s        %d                 %s  \t%s  \t%s\n", i,  cost_room[3].type, cost_room[3].price_per_night, pc, roomnumber[i].checkin, roomnumber[i].checkout );
-	}
-}
+//     printf("\t\n\tRoom   \t  Category  \tPrice per night  \tAvailable  \tCheckin  \tChekout\n");				
+// 	for (i = 1; i <= 5; ++i){
+// 		pc = roomnumber[i].status == 1 ? "NO" : "YES";	
+// 		printf("\t %d  \t%s        %d                  %s  \t%s  \t%s\n", i,  cost_room[0].type, cost_room[0].price_per_night, pc, roomnumber[i].checkin, roomnumber[i].checkout );
+// 	}
+// 	for (i = 6; i <= 10; ++i){
+// 		pc = roomnumber[i].status == 1 ? "NO" : "YES";	
+// 		printf("\t %d  \t%s        %d                  %s  \t%s  \t%s\n", i,  cost_room[1].type, cost_room[1].price_per_night, pc, roomnumber[i].checkin, roomnumber[i].checkout);
+// 	}
+// 	for (i = 11; i <= 15; ++i){
+// 		pc = roomnumber[i].status == 1 ? "NO" : "YES";	
+// 		printf("\t %d  \t%s        %d                  %s  \t%s  \t%s\n", i,  cost_room[2].type, cost_room[2].price_per_night, pc, roomnumber[i].checkin, roomnumber[i].checkout );
+// 	}
+// 	for (i = 16; i <= 20; ++i) {
+// 		pc = roomnumber[i].status == 1 ? "NO" : "YES";	
+// 		printf("\t %d  \t%s        %d                 %s  \t%s  \t%s\n", i,  cost_room[3].type, cost_room[3].price_per_night, pc, roomnumber[i].checkin, roomnumber[i].checkout );
+// 	}
+// }
