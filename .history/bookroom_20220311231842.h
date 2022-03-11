@@ -222,9 +222,9 @@ void add (int h, int i) {
 		while (!isValid) {
 			// Input
 			printf("\nSex (M: Male/ F: Famale/ O: Others):  ");
-        	roomnumber[i].client.sex = getche();
+        	scanf("%s", &roomnumber[i].client.sex);
 
-			switch (roomnumber[i].client.sex) {
+			switch (roomnumber[i].client.sex[0]) {
 				case 'M':
 				case 'm':
 				case 'F':
@@ -243,9 +243,9 @@ void add (int h, int i) {
 
         
         printf("\nPhone number:   ");
-        scanf("%s", roomnumber[i].client.phone);
+        scanf("%s", &roomnumber[i].client.phone);
         printf("\nEmail:  ");
-        scanf("%s", roomnumber[i].client.email);
+        scanf("%s", &roomnumber[i].client.email);
 
 		fprintf(fp, "%d, %d, %d/%d/%d, %d/%d/%d,", 
 		roomnumber[i].id_room,
@@ -253,7 +253,7 @@ void add (int h, int i) {
 		roomnumber[i].checkin.dd, roomnumber[i].checkin.mm, roomnumber[i].checkin.yy,
 		roomnumber[i].checkout.dd, roomnumber[i].checkout.mm, roomnumber[i].checkout.yy);
 
-		fprintf(fp, "%s, %d/%d/%d, %c, %s, %s, ", 
+		fprintf(fp, "%s, %d/%d/%d, %s, %s, %s, ", 
 	    roomnumber[i].client.name,
 	    roomnumber[i].client.birth.dd, roomnumber[i].client.birth.mm, roomnumber[i].client.birth.yy,
 	    roomnumber[i].client.sex,

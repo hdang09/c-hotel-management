@@ -253,7 +253,7 @@ void add (int h, int i) {
 		roomnumber[i].checkin.dd, roomnumber[i].checkin.mm, roomnumber[i].checkin.yy,
 		roomnumber[i].checkout.dd, roomnumber[i].checkout.mm, roomnumber[i].checkout.yy);
 
-		fprintf(fp, "%s, %d/%d/%d, %c, %s, %s, ", 
+		fprintf(fp, "%s, %d/%d/%d, %s, %s, %s, ", 
 	    roomnumber[i].client.name,
 	    roomnumber[i].client.birth.dd, roomnumber[i].client.birth.mm, roomnumber[i].client.birth.yy,
 	    roomnumber[i].client.sex,
