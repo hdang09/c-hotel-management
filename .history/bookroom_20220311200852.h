@@ -20,7 +20,7 @@ void bookroom() {
 		printf("Return to home press --> \"H\" \nPick another room press --> \"A\" \n >> ");
 	    ch = getch();
 		if(ch == 'h' || ch == 'H'){
-			mainMenu();
+			home();
 		}
     }
 	if (ch == 'a' || ch == 'A') goto RUN1;
