@@ -69,7 +69,7 @@ void mainMenu() {
 
 	printf("\t   %c Enter 8 %c Exit                                    %c\n", 179, 179);
 	printf("\t   %c", 192);
-	for (int i = 0; i <= 50; i++) {
+	for (int i = 0; i <= 50; i++) { 
 		printf("%c", 196);
 	}
 	printf("%c", 217);
