@@ -8,9 +8,9 @@
  
 struct CustomerDetails2   //STRUCTURE DECLARATION
 {
-    int roomCleaning;
+    char roomCleaning[10];
     date dateCleaning;
-    timing timeCleaning;
+    date timeCleaning;
 } clean;
  
 void addCleaningSchedule() {
@@ -28,25 +28,21 @@ void addCleaningSchedule() {
         system("cls");
         printf("******************* ROOM CLEANING SCHEDULE *******************");
 
-        // Validate room
-        RUN4: printf("\nRoom need to be cleaned: ");
+        RUN4: printf("\nRoom need to cleaned: ");
         fflush(stdin);
-        scanf("%d", &clean.roomCleaning);
-        if (clean.roomCleaning < 1 || clean.roomCleaning > 20) {
-            printf("Your input is unvalid. Please try again!\n");
-            goto RUN4;
-        }
+        scanf("%s", clean.roomCleaning);
+        if (clean.roomCleaning < 1 || clean.roomCleaning > 20) goto RUN4;
 
-        // Validate cleaning date
+        // Validate checkin
         isValid = 0;
         while (!isValid) {
             // Input
-            printf("\nDate for cleaning (dd/mm/yyyy): ");
+            printf("\nEnter day you checkin (dd/mm/yy): ");
             fflush(stdin);
             scanf("%d/%d/%d", &clean.dateCleaning.dd, &clean.dateCleaning.mm, &clean.dateCleaning.yy);
-            int day = clean.dateCleaning.dd;
-            int month = clean.dateCleaning.mm;
-            int year = clean.dateCleaning.yy;
+            int day = roomnumber[i].checkin.dd;
+            int month = roomnumber[i].checkin.mm;
+            int year = roomnumber[i].checkin.yy;
 
             //check year
             if (year >= 1900 && year <= 2100) {
@@ -76,22 +72,10 @@ void addCleaningSchedule() {
             !isValid ? printf("Your input is unvalid. Please try again!\n") : 0;
         }
 
-        // Validate cleaning time
-        isValid = 0;
-        while (!isValid) {
-            // Input
-            printf("\nTime for cleaning (hh:mm): ");
-            fflush(stdin);
-            scanf("%d:%d", &clean.timeCleaning.hh, &clean.timeCleaning.mm);
-            int hour = clean.timeCleaning.hh;
-            int minute = clean.timeCleaning.mm;
-
-            isValid = (hour < 24) && (minute < 60) ? 1 : 0;
-
-            // Notification
-            !isValid ? printf("Your input is unvalid. Please try again!\n") : 0;
-        }
-
+        printf("\nDate for cleaning: ");
+        scanf("%s", clean.dateCleaning);
+        printf("\nTime for cleaning: ");
+        scanf("%s", clean.timeCleaning);
         fwrite(&clean, sizeof(clean), 1, c);
         fflush(stdin);
         printf("\n\nAdd room cleaning schedule is successfully booked !!\n\n");
@@ -115,10 +99,8 @@ void showCleaningSchedule() {
     printf("Date for cleaning\t");
     printf("Time for cleaning\t\n");
    
-    while(fread(&clean, sizeof(clean), 1, c) == 1) {
-        printf(" \n %d \t   %d/%d/%d \t\t     %d:%d\n", clean.roomCleaning, 
-        clean.dateCleaning.dd, clean.dateCleaning.mm, clean.dateCleaning.yy,
-        clean.timeCleaning.hh, clean.timeCleaning.mm);
+    while(fread(&clean, sizeof(clean), 1, c)==1) {
+        printf(" \n%s \t%s \t\t %s\n",  clean.roomCleaning,  clean.dateCleaning,  clean.timeCleaning);
     }
    
     fclose(c);

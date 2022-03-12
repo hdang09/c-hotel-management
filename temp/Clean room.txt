@@ -1,0 +1,24 @@
+Room Cleaning Schedule
+__________________________________
+		
+ Room	 Date Clean	Time Clean
+  1	  dd/mm/yy	12:00 AM
+  2	  dd/mm/yy	no
+  3	  dd/mm/yy	no
+  4	  dd/mm/yy	no
+  5	  dd/mm/yy	no
+  6	  dd/mm/yy	no
+  7	  dd/mm/yy	no
+  8 	  dd/mm/yy	no
+  9	  dd/mm/yy	no
+  10	  dd/mm/yy	no
+  11	  dd/mm/yy	no
+  12	  dd/mm/yy	no
+  13	  dd/mm/yy	no
+  14	  dd/mm/yy	no
+  15	  dd/mm/yy	no
+  16	  dd/mm/yy	no
+  17	  dd/mm/yy	no
+  18	  dd/mm/yy	no
+  19	  dd/mm/yy	no
+  20	  dd/mm/yy	no

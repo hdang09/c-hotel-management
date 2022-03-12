@@ -7,9 +7,10 @@ typedef struct {
 
 // Struct for time 
 typedef struct {
-	int hh;
+	int dd;
 	int mm;
-} timing;
+	int yy;
+} time;
 
 // Customer properties
 typedef struct {

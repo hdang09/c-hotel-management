@@ -9,7 +9,6 @@ void bookroom() {
     //Pick room
     RUN1: {
 		printf("\n\n    Which room number you choose: ");
-		fflush(stdin);
 		scanf("%d", &i);
 	};
     	

@@ -9,7 +9,7 @@ typedef struct {
 typedef struct {
 	int hh;
 	int mm;
-} timing;
+} time;
 
 // Customer properties
 typedef struct {

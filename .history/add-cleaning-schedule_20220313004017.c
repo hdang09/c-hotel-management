@@ -116,7 +116,7 @@ void showCleaningSchedule() {
     printf("Time for cleaning\t\n");
    
     while(fread(&clean, sizeof(clean), 1, c) == 1) {
-        printf(" \n %d \t   %d/%d/%d \t\t     %d:%d\n", clean.roomCleaning, 
+        printf(" \n%d \t    %d/%d/%d \t\t     %d:%d\n", clean.roomCleaning, 
         clean.dateCleaning.dd, clean.dateCleaning.mm, clean.dateCleaning.yy,
         clean.timeCleaning.hh, clean.timeCleaning.mm);
     }

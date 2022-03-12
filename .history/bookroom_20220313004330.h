@@ -59,7 +59,7 @@ void add (int h, int i) {
 	    getch();
 	} 
 
-	system("cls");
+	// system("cls");
 	roomnumber[i].numclient = 0;
 	roomnumber[i].id_room = i;
     printf("=================== ROOM %d ===================\n", i);

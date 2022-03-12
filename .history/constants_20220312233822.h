@@ -5,12 +5,6 @@ typedef struct {
 	int yy;
 } date;
 
-// Struct for time 
-typedef struct {
-	int hh;
-	int mm;
-} timing;
-
 // Customer properties
 typedef struct {
 	char name[50];

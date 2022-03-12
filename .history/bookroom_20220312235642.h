@@ -9,7 +9,6 @@ void bookroom() {
     //Pick room
     RUN1: {
 		printf("\n\n    Which room number you choose: ");
-		fflush(stdin);
 		scanf("%d", &i);
 	};
     	
@@ -65,7 +64,7 @@ void add (int h, int i) {
     printf("=================== ROOM %d ===================\n", i);
     printf("\nPrice per night is %d", cost_room[h].price_per_night);
 	printf("\nNote: Max people in %s is %d", cost_room[h].type, cost_room[h].max_people );		   
-	printf("\nEnter period (\'x\'days):  ");
+	printf("\nEnter period(\'x\'days):  ");
     scanf("%d", &roomnumber[i].longstay);
 
 	// Validate checkin
