@@ -322,7 +322,7 @@ void add (int h, int i) {
 	printf("\nYour total bill: %d VND ", roomnumber[i].total_pay );  
 	fclose(fp);	
     
-    roomnumber[i].status = 1; // 1: Room has been booked
+    roomnumber[i].status= 1; // 1: Room has been booked
     printf("Succesfully requested booking\n");
     
 	printf("\nPress any key to return to main menu");

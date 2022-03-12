@@ -160,10 +160,10 @@ void add (int h, int i) {
 	RUN3: printf("Your option: ");
 	fflush(stdin);
 	int a;
-	for (a=1; a<=5; a++){
+	for(a=1; a<=5; a++){
 		scanf("%d", &roomnumber[i].service_in_use[a]);
 	}
-    for (a=1; a<=5; a++){
+    for(a=1; a<=5; a++){
 	    if (roomnumber[i].service_in_use[a] == 1 ) {			
 				cost_service[a] = list_service[a - 1].price_service;
 		}else if(roomnumber[i].service_in_use[a] == 0) 
@@ -322,7 +322,7 @@ void add (int h, int i) {
 	printf("\nYour total bill: %d VND ", roomnumber[i].total_pay );  
 	fclose(fp);	
     
-    roomnumber[i].status = 1; // 1: Room has been booked
+    roomnumber[i].status= 1; // 1: Room has been booked
     printf("Succesfully requested booking\n");
     
 	printf("\nPress any key to return to main menu");

@@ -96,7 +96,7 @@ void addCleaningSchedule() {
         fflush(stdin);
         printf("\n\nAdd room cleaning schedule is successfully booked !!\n\n");
         printf(" Press 'ESC': Go back to main menu\n");
-        printf(" Press another key: Add another room for cleaning");
+        printf(" Press another key: Add another customer detail");
         test = getche();
         if (test == 27) {
             break;
