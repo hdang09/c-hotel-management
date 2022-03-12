@@ -11,7 +11,7 @@ void exiting() {
 	printf("  %c \t\t                                   \t\t   %c\n", 186, 186);
 	printf("  %c \t\t    %c  FCODE - CODE THE DREAM  %c     \t\t   %c\n", 186, 3, 3, 186);
 	printf("  %c \t\t                                   \t\t   %c\n", 186, 186);
-	printf("  %c", 200);
+	printf("  %c", 200); 
 	for (int i = 0; i <= 63; i++) {
 		printf("%c", 205);
 	}
