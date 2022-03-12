@@ -6,7 +6,12 @@
 #include <time.h>
 #include <string.h>
 #include <errno.h>
+#include "dohoa.h"
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 4048c64216593293a80b0076413d3567d2e7a58e
 #define home main 
 
 #include "constants.h"
