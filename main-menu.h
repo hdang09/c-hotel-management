@@ -10,25 +10,72 @@ void mainMenu() {
 
 	printf("\t\t      Please enter your choice for menu");
 	printf("\n\n");
-	printf(" \n Enter 1 -> Book a room");
-	printf("\n------------------------------------------");
-	printf(" \n Enter 2 -> View Customer Record");
-	printf("\n------------------------------------------");
-	printf(" \n Enter 3 -> Cancel A Room");
-	printf("\n------------------------------------------");
-	printf(" \n Enter 4 -> Search Customer Record");
-	printf("\n------------------------------------------");
-	printf(" \n Enter 5 -> Edit Record");
-	printf("\n------------------------------------------");
-	printf(" \n Enter 6 -> Add Room cleaning Schedule");
-	printf("\n------------------------------------------");
-    printf(" \n Enter 7 -> Show Room cleaning Schedule");
-	printf("\n------------------------------------------");
-	printf(" \n Enter 8 -> Exit");
-	printf("\n------------------------------------------\n");
-	for(i = 0; i < 80; i ++) printf("-");
 
-	printf("\nYour choice is: ");
+	printf("\t   %c", 218);
+	for (int i = 0; i <= 50; i++)
+		printf("%c", 196);
+	printf("%c\n", 191);
+
+	printf("\t   %c Enter 1 %c Book a room                             %c \n", 179, 179, 179);
+
+	printf("\t   %c", 195);
+	for (int i = 0; i <= 50; i++) {
+		printf("%c", 196);
+	}
+	printf("%c\n", 180);
+
+	printf("\t   %c Enter 2 %c View Customer Record                    %c\n", 179, 179, 179);
+
+	printf("\t   %c", 195);
+	for (int i = 0; i <= 50; i++) {
+		printf("%c", 196);
+	}
+	printf("%c\n", 180);
+
+	printf("\t   %c Enter 3 %c Cancel A Room                           %c\n", 179, 179, 179);
+	printf("\t   %c", 195);
+	for (int i = 0; i <= 50; i++) {
+		printf("%c", 196);
+	}
+	printf("%c\n", 180);
+
+	printf("\t   %c Enter 4 %c Search Customer Record                  %c\n", 179, 179, 179);
+	printf("\t   %c", 195);
+	for (int i = 0; i <= 50; i++) {
+		printf("%c", 196);
+	}
+	printf("%c\n", 180);
+
+	printf("\t   %c Enter 5 %c Edit Record                             %c\n", 179, 179, 179);
+	printf("\t   %c", 195);
+	for (int i = 0; i <= 50; i++) {
+		printf("%c", 196);
+	}
+	printf("%c\n", 180);
+
+	printf("\t   %c Enter 6 %c Add Room cleaning Schedule              %c\n", 179, 179, 179);
+	printf("\t   %c", 195);
+	for (int i = 0; i <= 50; i++) {
+		printf("%c", 196);
+	}
+	printf("%c\n", 180);
+
+    printf("\t   %c Enter 7 %c Show Room cleaning Schedule             %c\n", 179, 179, 179);
+	printf("\t   %c", 195);
+	for (int i = 0; i <= 50; i++) {
+		printf("%c", 196);
+	}
+	printf("%c\n", 180);
+
+	printf("\t   %c Enter 8 %c Exit                                    %c\n", 179, 179, 179);
+	printf("\t   %c", 192);
+	for (int i = 0; i <= 50; i++) { 
+		printf("%c", 196);
+	}
+	printf("%c", 217);
+
+
+	printf("\n\n\t\t\t    Your choice is: ");
 	fflush(stdin);
 	input = getchar();
 	switch (input) {

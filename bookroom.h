@@ -18,7 +18,7 @@ void bookroom() {
 		printf("\nPlease pick another room >>   \n\n");
 		printf("Return to home press --> \"H\" \nPick another room press --> \"A\" \n >> ");
 	    ch = getch();
-		if(ch == 'h' || ch == 'H'){
+		if(ch == 'h' || ch == 'H') {
 			mainMenu();
 		}
     }
@@ -154,17 +154,22 @@ void add (int h, int i) {
 	printf("4. Service 4 cost 200000\n");
 	printf("5. Service 5 cost 400000\n");
 	printf("\nNote: if you choose service 1 and 2 just type \" 1_1_0_0_0 \" with \"_\" mean space, \"0\" mean you don't want \n");
-	printf("Your option: ");
-	int a = 1;
-		while (a <= 5) { 
-			scanf("%d", &roomnumber[i].service_in_use[a]);
-			if (roomnumber[i].service_in_use[a] == 1 ) {			
+	RUN3: printf("Your option: ");
+	fflush(stdin);
+	int a;
+	for(a=1; a<=5; a++){
+		scanf("%d", &roomnumber[i].service_in_use[a]);
+	}
+    for(a=1; a<=5; a++){
+	    if (roomnumber[i].service_in_use[a] == 1 ) {			
 				cost_service[a] = list_service[a - 1].price_service;
-			} else {
+		}else if(roomnumber[i].service_in_use[a] == 0) 
 				cost_service[a] = 0;
-			}
-			a++;    					
-		}		
+	    else{
+	    		printf("ERROR !\n");
+		        goto RUN3;
+		}
+	}		
 	
 	printf("\n---------------------------------------------");		
 	printf("\n\n!!---Please fill this form---!!\n");
@@ -349,18 +354,18 @@ void roomstatus(struct room_hotel *roomnumber){
     printf("\t\n\tRoom   \t  Category  \tPrice per night  \tAvailable\n");				
 	for (i = 1; i <= 5; ++i){
 		pc = roomnumber[i].status == 1 ? "NO" : "YES";	
-		printf("\t %d  \t%s        %d                  %s  \n", i,  cost_room[0].type, cost_room[0].price_per_night, pc);
+		printf("\t %d  \t%s        %d                  %s  \n\n", i,  cost_room[0].type, cost_room[0].price_per_night, pc);
 	}
 	for (i = 6; i <= 10; ++i){
 		pc = roomnumber[i].status == 1 ? "NO" : "YES";	
-		printf("\t %d  \t%s        %d                  %s  \n", i,  cost_room[1].type, cost_room[1].price_per_night, pc);
+		printf("\t %d  \t%s        %d                  %s  \n\n", i,  cost_room[1].type, cost_room[1].price_per_night, pc);
 	}
 	for (i = 11; i <= 15; ++i){
 		pc = roomnumber[i].status == 1 ? "NO" : "YES";	
-		printf("\t %d  \t%s        %d                  %s  \n", i,  cost_room[2].type, cost_room[2].price_per_night, pc);
+		printf("\t %d  \t%s        %d                  %s  \n\n", i,  cost_room[2].type, cost_room[2].price_per_night, pc);
 	}
 	for (i = 16; i <= 20; ++i) {
 		pc = roomnumber[i].status == 1 ? "NO" : "YES";	
-		printf("\t %d  \t%s        %d                 %s  \n", i,  cost_room[3].type, cost_room[3].price_per_night, pc);
+		printf("\t %d  \t%s        %d                 %s  \n\n", i,  cost_room[3].type, cost_room[3].price_per_night, pc);
 	}
 }

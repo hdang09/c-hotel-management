@@ -29,7 +29,7 @@ void view() {
 		s.checkin2.mm = strtol(token, NULL, 10);
 		token = strtok(NULL, ", ");
 		s.checkin2.yy = strtol(token, NULL, 10);
-
+     
 		// - Get checkout
 		token = strtok(NULL, "/");
 		s.checkout2.dd = strtol(token, NULL, 10);
@@ -78,22 +78,38 @@ void view() {
 		// Handling
 		if (roomNumber != s.room2) {
 			// Export: Roon number, longstay, checkin, checkout
-			printf("\n\n\n=============== ROOM %d =============== \n Period days %d\n Checkin %d/%d/%d \n checkout %d/%d/%d \n ",
-			s.room2,
-			s.longstay2,
-			s.checkin2.dd, s.checkin2.mm, s.checkin2.yy,
-			s.checkout2.dd, s.checkout2.mm, s.checkout2.yy);
+
+			// printf("\n\n\n=============== ROOM %d =============== \n Period days %d\n Checkin %d/%d/%d \n checkout %d/%d/%d \n ",
+			// s.room2,
+			// s.longstay2,
+			// s.checkin2.dd, s.checkin2.mm, s.checkin2.yy,
+			// s.checkout2.dd, s.checkout2.mm, s.checkout2.yy);
+
+			printf("\n\n");
+			for (int i = 0; i < 32; i++) {
+				printf("%c", 205);
+			}
+			printf(" ROOM %d ", s.room2);
+			for (int i = 0; i < 32; i++) {
+				printf("%c", 205);
+			}
 			
+			printf("\nPeriod days : %d\n", s.longstay2);
+			printf("Checkin     : %d/%d/%d\n", s.checkin2.dd, s.checkin2.mm, s.checkin2.yy);
+			printf("Checkout    : %d/%d/%d\n", s.checkout2.dd, s.checkout2.mm, s.checkout2.yy);
+
+
+
 			// Export services
-			printf("\n\nServices in use \n Service 1 \t Service 2 \t Service 3 \t Service 4 \t Service 5 \n ");
+			printf("\n\nServices in use: \n Service 1 \t Service 2 \t Service 3 \t Service 4 \t Service 5 \n ");
 			for (int a = 0; a < 5; a++) {    	    			
 				if (s.service_in_use2[a] == 1 ) {
 					// cost_service[a] = list_service[a - 1].price_service;
-					printf("YES                ");
+					printf("YES              ");
 				}
 				else {
 					// cost_service[a]= 0;
-					printf("NO                ");		
+					printf("NO              ");		
 				}
 			}
 			// payy = s.longstay * (cost_room[h].price_per_night + cost_service[1] + cost_service[2] + cost_service[3] + cost_service[4] + cost_service[5] );
@@ -112,6 +128,8 @@ void view() {
 		s.phone2,
 		s.email2);   
 		numClient++;
+		
+
 	}
 
 	fclose(fp);
