@@ -10,7 +10,7 @@ typedef struct {
 	char name[50];
 	date birth;
 	char sex;
-	int phone;
+	int phone[10];
 	char email[100];	
 } client_detail;
 

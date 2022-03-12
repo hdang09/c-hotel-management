@@ -1,15 +1,19 @@
-void view() {
-	FILE *fp;
-//	fp = NULL;
-	char arr[100000];
-	fp = fopen("rooms.txt", "r+");
+void search() {
+    system("cls");
+    FILE *f;
+    char roomNumber[20];
+    int flag = 1;
+    f = fopen("rooms.txt","r+");
+    if(f == 0)
+        exit(0);
+    fflush(stdin);
+    printf("Enter Room number of the customer to search its details: \n");
+    scanf("%s", roomNumber);
 
-//	int cost
-
-	int lineLength = 255, roomNumber, numClient = 1;
+    int lineLength = 255;
     char line[lineLength], line2[lineLength]; /* not ISO 90 compatible */
 
-    while (fgets(line, sizeof(line), fp)) {
+    while (fgets(line, sizeof(line), f)) {
 		// Copy a new string from line to line2
 		strcpy(line2, line);
 
@@ -74,51 +78,36 @@ void view() {
 		// - Get total pay
 		token = strtok(NULL, ", ");
 		s.total_pay2 = strtol(token, NULL, 10);
-
+		
 		// Handling
-		if (roomNumber != s.room2) {
-			// Export: Roon number, longstay, checkin, checkout
-			printf("\n\n\n=============== ROOM %d =============== \n Period days %d\n Checkin %d/%d/%d \n checkout %d/%d/%d \n ",
-			s.room2,
-			s.longstay2,
-			s.checkin2.dd, s.checkin2.mm, s.checkin2.yy,
+		if (atoi(roomNumber) == s.room2) {
+			flag = 0;
+            printf("\n\tRecord Found\n ");
+
+            printf("\nLongstay:\t %d", s.longstay2);
+            printf("\nCheckin:\t %d/%d/%d", 
+			s.checkin2.dd, s.checkin2.mm, s.checkin2.yy);
+			printf("\nCheckout:\t %d/%d/%d", 
 			s.checkout2.dd, s.checkout2.mm, s.checkout2.yy);
-			
-			// Export services
-			printf("\n\nServices in use \n Service 1 \t Service 2 \t Service 3 \t Service 4 \t Service 5 \n ");
-			for (int a = 0; a < 5; a++) {    	    			
-				if (s.service_in_use2[a] == 1 ) {
-					// cost_service[a] = list_service[a - 1].price_service;
-					printf("YES                ");
-				}
-				else {
-					// cost_service[a]= 0;
-					printf("NO                ");		
-				}
-			}
-			// payy = s.longstay * (cost_room[h].price_per_night + cost_service[1] + cost_service[2] + cost_service[3] + cost_service[4] + cost_service[5] );
-
-			// Export total pay
-			printf("\nTotal pay: %d\n", s.total_pay2);
-			roomNumber = s.room2;
-			numClient = 1;
-		}
-
-		printf("\nPerson %d \n >>----------<< \n Fullname:\t\t%s \n Birthday (mm/dd/yyyy): %d/%d/%d \n Sex: \t\t\t%s \n Phone number:\t\t%d \n Email:\t\t\t%s\n", 
-		numClient,
-		s.name2,
-		s.birth2.dd, s.birth2.mm, s.birth2.yy,
-		s.sex2,
-		s.phone2,
-		s.email2);   
-		numClient++;
+            printf("\nName:\t %s", s.name2);
+            printf("\nDate of birth:\t %d/%d/%d", 
+			s.checkout2.dd, s.checkout2.mm, s.checkout2.yy);
+            printf("\nPhone:\t %d", s.phone2);
+            printf("\nEmail:\t %s", s.email2);
+            printf("\nTotal pay:\t %d\n\n", s.total_pay2);
+            // printf("\nArrival date:\t %s", s.arrivaldate);
+            // break;
+		} 
 	}
 
-	fclose(fp);
-
-	printf("\nPress anykey to return home screen");
-	getch();
-	system("cls");
-	fflush(stdin);
-	mainMenu();
+   
+    if (flag == 1){    
+        printf("\n\tRequested Customer could not be found!");
+    }
+    printf("\nPress any key to go back to main menu");
+    getch();
+    mainMenu();
+    fclose(f);
 }
+
+

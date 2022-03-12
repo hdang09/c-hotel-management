@@ -287,7 +287,7 @@ void edit()
             s.phone2,
             s.email2);
 
-            for (int a = 1; a <= 5; a++) 
+            for (int a = 0; a < 5; a++) 
                 fprintf(t, "%d, ", s.service_in_use2[a]);
 
             if (s.room2 >= 1 && s.room2 <= 5) {

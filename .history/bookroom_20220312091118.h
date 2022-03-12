@@ -50,9 +50,9 @@ void bookroom() {
 }
  
 void add (int h, int i) { 
-   fp = fopen("rooms.txt", "a+"); 
+   fp = fopen("room-list.txt", "a+"); 
 	if (fp == 0) {
-    	fp = fopen("rooms.txt", "a+");
+    	fp = fopen("room-list.txt", "a+");
 	    printf("Please hold on while we set our database in your computer !!");
 	    printf("\n Process completed press any key to continue !!");
 	    getch();
@@ -262,7 +262,6 @@ void add (int h, int i) {
 			}
 			roomnumber[i].client.phone = atoi(phone);
 		}
-
         printf("\nEmail:  ");
         scanf("%s", roomnumber[i].client.email);
 
@@ -272,7 +271,7 @@ void add (int h, int i) {
 		roomnumber[i].checkin.dd, roomnumber[i].checkin.mm, roomnumber[i].checkin.yy,
 		roomnumber[i].checkout.dd, roomnumber[i].checkout.mm, roomnumber[i].checkout.yy);
 
-		fprintf(fp, "%s, %d/%d/%d, %c, %d, %s, ", 
+		fprintf(fp, "%s, %d/%d/%d, %c, %s, %s, ", 
 	    roomnumber[i].client.name,
 	    roomnumber[i].client.birth.dd, roomnumber[i].client.birth.mm, roomnumber[i].client.birth.yy,
 	    roomnumber[i].client.sex,
@@ -288,7 +287,7 @@ void add (int h, int i) {
 				fprintf(fp, "%d, ", roomnumber[i].service_in_use[a]);   	    			
 
 			roomnumber[i].total_pay = roomnumber[i].longstay * (cost_room[h].price_per_night + cost_service[1] + cost_service[2] + cost_service[3] + cost_service[4] + cost_service[5] );
-			// Print total pay to "rooms.txt"	
+			// Print total pay to "room-list.txt"	
 			fprintf(fp, "%d\n", roomnumber[i].total_pay);
 		  	break; 
 		} else if (ch == 'Y' || ch == 'y') {
@@ -303,7 +302,7 @@ void add (int h, int i) {
 			fprintf(fp, "%d, ", roomnumber[i].service_in_use[a]);   	    			
 
 		roomnumber[i].total_pay = roomnumber[i].longstay * (cost_room[h].price_per_night + cost_service[1] + cost_service[2] + cost_service[3] + cost_service[4] + cost_service[5] );
-		// Print total pay to "rooms.txt"	
+		// Print total pay to "room-list.txt"	
 		fprintf(fp, "%d\n", roomnumber[i].total_pay);
    } 
 
@@ -326,7 +325,7 @@ void add (int h, int i) {
 void roomstatus(struct room_hotel *roomnumber){
 	char *pc;
 	FILE *f;
-	f = fopen("rooms.txt", "r");
+	f = fopen("room-list.txt", "r");
 
 	int lineLength = 255, roomNum;
     char line[lineLength], line2[lineLength]; /* not ISO 90 compatible */

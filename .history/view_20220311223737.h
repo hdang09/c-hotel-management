@@ -2,7 +2,7 @@ void view() {
 	FILE *fp;
 //	fp = NULL;
 	char arr[100000];
-	fp = fopen("rooms.txt", "r+");
+	fp = fopen("room-list.txt", "r+");
 
 //	int cost
 

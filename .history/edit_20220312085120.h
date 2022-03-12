@@ -2,7 +2,7 @@ void edit()
 {
     system("cls");
     FILE *f, *t;
-    f = fopen("rooms.txt", "r");
+    f = fopen("room-list.txt", "r");
     t = fopen("temp.txt", "w");
     if (f == NULL) exit(0);
 
@@ -136,10 +136,10 @@ void edit()
                 // Input
                 printf("\nEnter day you checkout (dd/mm/yy): " );
                 fflush(stdin);
-                scanf("%d/%d/%d", &s.checkout2.dd, &s.checkout2.mm, &s.checkout2.yy);	
-                int day = s.checkout2.dd;
-                int month = s.checkout2.mm;
-                int year = s.checkout2.yy;
+                scanf("%d/%d/%d", &roomnumber[i].checkout.dd, &roomnumber[i].checkout.mm, &roomnumber[i].checkout.yy );	
+                int day = roomnumber[i].checkout.dd;
+                int month = roomnumber[i].checkout.mm;
+                int year = roomnumber[i].checkout.yy;
 
                 //check year
                 if (year >= 1900 && year <= 2100) {
@@ -169,8 +169,14 @@ void edit()
                 !isValid ? printf("Your input is unvalid. Please try again!\n") : 0;
             }
             
+
+
+
+            
+            printf("\nEnter day you checkout (dd/mm/yy): " );
+            scanf("%d/%d/%d",  &s.checkout2.dd,  &s.checkout2.mm,  &s.checkout2.yy );
+            
             printf("\n\nEnter your fullname: ");
-            fflush(stdin);
             gets(s.name2);
 
             // Validate birthday
@@ -236,27 +242,8 @@ void edit()
                 !isValid ? printf("Your input is unvalid. Please try again!\n") : 0;
             }
 
-            // Validate phone number
-            {
-                int c;
-                char phone[15];
-                RUN2: printf("\nPhone number: ");
-                scanf("%s", phone );
-                int length = strlen(phone);
-                if( length != 10)
-                {
-                    printf("Phone number contains only 10 number characters ! \n");
-                    goto RUN2;
-                }
-                for (c = 0; c < 10; c++ ) {
-                    if (phone[c] < '0' || phone[c] > '9') {
-                        printf("Phone number is number ! \n");
-                        goto RUN2;
-                	}
-            	}
-                s.phone2 = atoi(phone);
-            }
-
+            printf("\nPhone number:   ");
+            scanf("%d", &s.phone2);
             printf("\nEmail:  ");
             scanf("%s", &s.email2);
 
@@ -287,7 +274,7 @@ void edit()
             s.phone2,
             s.email2);
 
-            for (int a = 1; a <= 5; a++) 
+            for (int a = 0; a < 5; a++) 
                 fprintf(t, "%d, ", s.service_in_use2[a]);
 
             if (s.room2 >= 1 && s.room2 <= 5) {
@@ -318,8 +305,8 @@ void edit()
     //	File handling
     fclose(f);
     fclose(t);
-    remove("rooms.txt");
-    rename("temp.txt", "rooms.txt");
+    remove("room-list.txt");
+    rename("temp.txt", "room-list.txt");
 
     // Go back to main menu
     printf("Press any key to go back to main menu");

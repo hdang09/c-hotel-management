@@ -55,7 +55,7 @@ void login(void) {
     else {
             printf("\nIncorrect Login Details\nPlease enter the correct credentials\n\n");
             printf("Press 'A': Type again.\n");
-            printf("Press 'C': Create an account if you don't have any account.\n");
+            printf("Press 'C': Create an account if you don't have any account!\n");
             c = getch();
 
             if (c == 'a' || c == 'A') {

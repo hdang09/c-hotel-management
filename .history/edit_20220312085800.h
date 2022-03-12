@@ -2,7 +2,7 @@ void edit()
 {
     system("cls");
     FILE *f, *t;
-    f = fopen("rooms.txt", "r");
+    f = fopen("room-list.txt", "r");
     t = fopen("temp.txt", "w");
     if (f == NULL) exit(0);
 
@@ -240,7 +240,7 @@ void edit()
             {
                 int c;
                 char phone[15];
-                RUN2: printf("\nPhone number: ");
+                RUN2: printf("Enter phonenumber: ");
                 scanf("%s", phone );
                 int length = strlen(phone);
                 if( length != 10)
@@ -254,9 +254,10 @@ void edit()
                         goto RUN2;
                 	}
             	}
-                s.phone2 = atoi(phone);
             }
 
+            printf("\nPhone number:   ");
+            scanf("%d", &s.phone2);
             printf("\nEmail:  ");
             scanf("%s", &s.email2);
 
@@ -287,7 +288,7 @@ void edit()
             s.phone2,
             s.email2);
 
-            for (int a = 1; a <= 5; a++) 
+            for (int a = 0; a < 5; a++) 
                 fprintf(t, "%d, ", s.service_in_use2[a]);
 
             if (s.room2 >= 1 && s.room2 <= 5) {
@@ -318,8 +319,8 @@ void edit()
     //	File handling
     fclose(f);
     fclose(t);
-    remove("rooms.txt");
-    rename("temp.txt", "rooms.txt");
+    remove("room-list.txt");
+    rename("temp.txt", "room-list.txt");
 
     // Go back to main menu
     printf("Press any key to go back to main menu");
