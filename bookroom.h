@@ -154,17 +154,22 @@ void add (int h, int i) {
 	printf("4. Service 4 cost 200000\n");
 	printf("5. Service 5 cost 400000\n");
 	printf("\nNote: if you choose service 1 and 2 just type \" 1_1_0_0_0 \" with \"_\" mean space, \"0\" mean you don't want \n");
-	printf("Your option: ");
-	int a = 1;
-		while (a <= 5) { 
-			scanf("%d", &roomnumber[i].service_in_use[a]);
-			if (roomnumber[i].service_in_use[a] == 1 ) {			
+	RUN3: printf("Your option: ");
+	fflush(stdin);
+	int a;
+	for(a=1; a<=5; a++){
+		scanf("%d", &roomnumber[i].service_in_use[a]);
+	}
+    for(a=1; a<=5; a++){
+	    if (roomnumber[i].service_in_use[a] == 1 ) {			
 				cost_service[a] = list_service[a - 1].price_service;
-			} else {
+		}else if(roomnumber[i].service_in_use[a] == 0) 
 				cost_service[a] = 0;
-			}
-			a++;    					
-		}		
+	    else{
+	    		printf("ERROR !\n");
+		        goto RUN3;
+		}
+	}		
 	
 	printf("\n---------------------------------------------");		
 	printf("\n\n!!---Please fill this form---!!\n");
