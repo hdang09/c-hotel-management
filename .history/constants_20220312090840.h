@@ -52,7 +52,7 @@ struct room_hotel {
  	date checkout; 
  	int service_in_use[5];
  	int status; //0: available -  1: full
- 	long int total_pay; 	 	
+ 	int total_pay; 	 	
  } roomnumber[21]; // The number of a room is 20 room
 
  struct CustomerDetails   //Speacial structure for handling "room-list.txt" file
@@ -67,7 +67,7 @@ struct room_hotel {
 	int phone2;
 	char email2[100];	
 	int service_in_use2[5];
-	long int total_pay2; 	 
+	int total_pay2; 	 
 } s;
 
 //Declare PROTOTYPES

@@ -217,7 +217,7 @@ void edit()
             while (!isValid) {
                 // Input
                 printf("\nSex (M: Male/ F: Famale/ O: Others):  ");
-                scanf("%s", s.sex2);
+                scanf("%s", s.sex2)
 
                 switch (s.sex2[0]) {
                     case 'M':

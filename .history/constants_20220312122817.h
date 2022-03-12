@@ -63,7 +63,7 @@ struct room_hotel {
 	date checkout2;
 	char name2[500];
 	date birth2;
-	char sex2[1];
+	char sex2;
 	int phone2;
 	char email2[100];	
 	int service_in_use2[5];

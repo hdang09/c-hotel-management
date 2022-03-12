@@ -58,8 +58,10 @@ void edit()
 		s.birth2.yy = strtol(token, NULL, 10);
 
 		// - Get sex
+        printf("Hello");
 		token = strtok(NULL, ", ");
 		if (token != NULL) strcpy(s.sex2, token);
+        printf("Hello 2");
 
 		// - Get phone number
 		token = strtok(NULL, ", ");
@@ -217,9 +219,9 @@ void edit()
             while (!isValid) {
                 // Input
                 printf("\nSex (M: Male/ F: Famale/ O: Others):  ");
-                scanf("%s", s.sex2);
+                s.sex2 = getche();
 
-                switch (s.sex2[0]) {
+                switch (s.sex2) {
                     case 'M':
                     case 'm':
                     case 'F':

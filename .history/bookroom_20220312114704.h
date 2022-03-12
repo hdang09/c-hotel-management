@@ -156,7 +156,7 @@ void add (int h, int i) {
 	printf("\nNote: if you choose service 1 and 2 just type \" 1_1_0_0_0 \" with \"_\" mean space, \"0\" mean you don't want \n");
 	printf("Your option: ");
 	int a = 1;
-		while (a <= 5) { 
+		while (a <= 5){ 
 			scanf("%d", &roomnumber[i].service_in_use[a]);
 			if (roomnumber[i].service_in_use[a] == 1 ) {			
 				cost_service[a] = list_service[a - 1].price_service;
@@ -165,6 +165,7 @@ void add (int h, int i) {
 			}
 			a++;    					
 		}		
+	for (int i = 1; i <= 5; i++) printf("%d", roomnumber[i].service_in_use[a]);
 	
 	printf("\n---------------------------------------------");		
 	printf("\n\n!!---Please fill this form---!!\n");
@@ -284,9 +285,9 @@ void add (int h, int i) {
         printf("\nY/N >>>  ");
         ch = getch();
         if (ch == 'N' || ch == 'n') {
-			for (int a = 1; a <= 5; a++) fprintf(fp, "%d, ", roomnumber[i].service_in_use[a]);   	    			
+			for (int i = 0; i < 5; i++)
+				fprintf(fp, "%d, ", roomnumber[i].service_in_use[a]);   	    			
 
-			// Caluculate total pay
 			roomnumber[i].total_pay = roomnumber[i].longstay * (cost_room[h].price_per_night + cost_service[1] + cost_service[2] + cost_service[3] + cost_service[4] + cost_service[5] );
 			// Print total pay to "rooms.txt"	
 			fprintf(fp, "%d\n", roomnumber[i].total_pay);
@@ -299,9 +300,9 @@ void add (int h, int i) {
     	   }
     	}
 
-		for (int a = 1; a <= 5; a++) fprintf(fp, "%d, ", roomnumber[i].service_in_use[a]);   	    			
+		for (int i = 0; i < 5; i++)
+			fprintf(fp, "%d, ", roomnumber[i].service_in_use[a]);   	    			
 
-		// Caluculate total pay
 		roomnumber[i].total_pay = roomnumber[i].longstay * (cost_room[h].price_per_night + cost_service[1] + cost_service[2] + cost_service[3] + cost_service[4] + cost_service[5] );
 		// Print total pay to "rooms.txt"	
 		fprintf(fp, "%d\n", roomnumber[i].total_pay);

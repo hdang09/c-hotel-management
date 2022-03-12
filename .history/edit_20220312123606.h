@@ -81,6 +81,7 @@ void edit()
 		// - Get total pay
 		token = strtok(NULL, ", ");
 		s.total_pay2 = strtol(token, NULL, 10);
+            printf("Hello");
 		
 		// Handling
 		if (atoi(roomNumber) == s.room2) {
@@ -217,9 +218,9 @@ void edit()
             while (!isValid) {
                 // Input
                 printf("\nSex (M: Male/ F: Famale/ O: Others):  ");
-                scanf("%s", s.sex2);
+                s.sex2 = getche();
 
-                switch (s.sex2[0]) {
+                switch (s.sex2) {
                     case 'M':
                     case 'm':
                     case 'F':

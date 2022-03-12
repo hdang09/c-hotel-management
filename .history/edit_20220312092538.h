@@ -217,7 +217,7 @@ void edit()
             while (!isValid) {
                 // Input
                 printf("\nSex (M: Male/ F: Famale/ O: Others):  ");
-                scanf("%s", s.sex2);
+                scanf("%s", &s.sex2);
 
                 switch (s.sex2[0]) {
                     case 'M':
@@ -272,7 +272,7 @@ void edit()
             while (a <= 5){
                 scanf("%d", &s.service_in_use2[a]);
                 a++;
-            }	
+            }		
             // fseek(f, size, SEEK_CUR);  //to go to desired position infile
             fprintf(t, "%d, %d, %d/%d/%d, %d/%d/%d,", 
             s.room2,
@@ -280,7 +280,7 @@ void edit()
             s.checkin2.dd, s.checkin2.mm, s.checkin2.yy,
             s.checkout2.dd, s.checkout2.mm, s.checkout2.yy);
 
-            fprintf(t, "%s, %d/%d/%d, %c, %d, %s, ", 
+            fprintf(t, "%s, %d/%d/%d, %s, %d, %s, ", 
             s.name2,
             s.birth2.dd, s.birth2.mm, s.birth2.yy,
             s.sex2,
