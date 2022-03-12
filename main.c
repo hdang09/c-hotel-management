@@ -76,7 +76,7 @@ void home() {
 	printf("%c\t\t *************************************************\t\t  %c\n", 186, 186);
 	printf("%c\t\t                                                  \t\t  %c\n", 186, 186);
 	printf("%c", 200);
-	for (int i = 0; i <= 80; i++)
+	for (int i = 0; i <= 80; i++)  
 		printf("%c", 205);
 	printf("%c\n", 188);
 	
