@@ -267,12 +267,22 @@ void edit()
             printf("4. Service 4 cost 200000\n");
             printf("5. Service 5 cost 400000\n");
             printf("\nNote: if you choose service 1 and 2 just type \" 1_1_0_0_0 \" with \"_\" mean space, \"0\" mean you don't want \n");
-            printf("Your option: ");
-            int a = 1;
-            while (a <= 5){
-                scanf("%d", &s.service_in_use2[a]);
-                a++;
-            }	
+            RUN3: printf("Your option: ");
+	    fflush(stdin);
+	    int a;
+	    for(a=1; a<=5; a++){
+		scanf("%d", &roomnumber[i].service_in_use[a]);
+	    }
+            for(a=1; a<=5; a++){
+	        if (roomnumber[i].service_in_use[a] == 1 ) {			
+				cost_service[a] = list_service[a - 1].price_service;
+		}else if(roomnumber[i].service_in_use[a] == 0) 
+				cost_service[a] = 0;
+	        else{
+	    		printf("ERROR !\n");
+		        goto RUN3;
+		}
+	   }
             // fseek(f, size, SEEK_CUR);  //to go to desired position infile
             fprintf(t, "%d, %d, %d/%d/%d, %d/%d/%d,", 
             s.room2,
