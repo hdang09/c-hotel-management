@@ -344,21 +344,21 @@ void roomstatus(struct room_hotel *roomnumber){
 	}
 	fclose(f);
 
-    printf("\t\n\tRoom   \t  Category  \tPrice per night  \tAvailable\n");				
+    printf("\t\n\tRoom   \t  Category  \t  Price per night  \tAvailable\n");				
 	for (i = 1; i <= 5; ++i){
 		pc = roomnumber[i].status == 1 ? "NO" : "YES";	
-		printf("\t %d  \t%s        %d                  %s  \n", i,  cost_room[0].type, cost_room[0].price_per_night, pc);
+		printf("\t %d  \t%s           %d                 %s\n", i,  cost_room[0].type, cost_room[0].price_per_night, pc);
 	}
 	for (i = 6; i <= 10; ++i){
 		pc = roomnumber[i].status == 1 ? "NO" : "YES";	
-		printf("\t %d  \t%s        %d                  %s  \n", i,  cost_room[1].type, cost_room[1].price_per_night, pc);
+		printf("\t %d  \t%s           %d                 %s\n", i,  cost_room[1].type, cost_room[1].price_per_night, pc);
 	}
 	for (i = 11; i <= 15; ++i){
 		pc = roomnumber[i].status == 1 ? "NO" : "YES";	
-		printf("\t %d  \t%s        %d                  %s  \n", i,  cost_room[2].type, cost_room[2].price_per_night, pc);
+		printf("\t %d  \t%s          %d                  %s\n", i,  cost_room[2].type, cost_room[2].price_per_night, pc);
 	}
 	for (i = 16; i <= 20; ++i) {
 		pc = roomnumber[i].status == 1 ? "NO" : "YES";	
-		printf("\t %d  \t%s        %d                 %s  \n", i,  cost_room[3].type, cost_room[3].price_per_night, pc);
+		printf("\t %d  \t%s          %d                 %s\n", i,  cost_room[3].type, cost_room[3].price_per_night, pc);
 	}
 }

@@ -344,7 +344,7 @@ void roomstatus(struct room_hotel *roomnumber){
 	}
 	fclose(f);
 
-    printf("\t\n\tRoom   \t  Category  \tPrice per night  \tAvailable\n");				
+    printf("\t\n\tRoom       \tCategory    \tPrice per night\tAvailable\n");				
 	for (i = 1; i <= 5; ++i){
 		pc = roomnumber[i].status == 1 ? "NO" : "YES";	
 		printf("\t %d  \t%s        %d                  %s  \n", i,  cost_room[0].type, cost_room[0].price_per_night, pc);
