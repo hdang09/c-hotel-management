@@ -45,7 +45,7 @@ void home() {
 	printf("%c", 201);
 	for (int i = 0; i <= 80; i++) printf("%c", 205);
 	printf("%c\n", 187);
-	printf("%c                                                                                 %c\n", 186, 186);      
+	printf("%c                                                                                 %c\n", 186, 186);       
 	printf("%c                                                                                 %c\n", 186, 186);
 	printf("%c  OOOOOO    OOOOOO  OOOOOO  OOOOOO  OOOOOO  OOOOOO  O      O  OOOOOOO   OOOOOO   %c\n", 186, 186);
 	printf("%c  O         O    O  O       O         O       O     O O    O  O         O        %c\n", 186, 186);
