@@ -29,7 +29,7 @@ void view() {
 		s.checkin2.mm = strtol(token, NULL, 10);
 		token = strtok(NULL, ", ");
 		s.checkin2.yy = strtol(token, NULL, 10);
-
+     
 		// - Get checkout
 		token = strtok(NULL, "/");
 		s.checkout2.dd = strtol(token, NULL, 10);
