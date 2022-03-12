@@ -8,7 +8,7 @@
 #include <errno.h>
 #include "dohoa.h"
 
-#define home main
+#define home main 
 
 #include "constants.h"
 #include "add-cleaning-schedule.c"
