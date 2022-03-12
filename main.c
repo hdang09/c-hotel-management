@@ -6,6 +6,7 @@
 #include <time.h>
 #include <string.h>
 #include <errno.h>
+#include "dohoa.h"
 
 #define home main
 
@@ -33,47 +34,65 @@ if(GetConsoleScreenBufferInfo(hStdOut,&csbi)) {
 }
 
 void home() {
+	SetConsoleCP(437);
+	SetConsoleOutputCP(437);
 	int option;
-    time_t t;
+	time_t t;
 	time(&t);
 	char choice;
 	system("cls");   // FOR CLEARING SCREEN
 	setcolor(15);
-	printf("__________________________________________________________________________________\n");
-	printf("|                                                                                 |\n");      
-	printf("|                                                                                 |\n");
-	printf("|  OOOOOO    OOOOOO  OOOOOO  OOOOOO  OOOOOO  OOOOOO  O      O  OOOOOOO   OOOOOO   |\n");
-	printf("|  O         O    O  O       O         O       O     O O    O  O         O        |\n");
-	printf("|  O  OOOOO  OOOOOO  OOOOO   OOOOO     O       O     O  O   O  O  OOOOO  OOOOOO   |\n");
-	printf("|  O    O    O  O    O       O         O       O     O   O  O  O    O         O   |\n");
-	printf("|  OOOOOO    O   O   OOOOOO  OOOOOO    O     OOOOOO  O    O O  OOOOOO    OOOOOO   |\n");
-	printf("|                                                                                 |\n");                       
-	printf("|_________________________________________________________________________________|\n");
-	setcolor(9);
-	printf("\t\t*************************************************\n");
-	printf("\t\t*                                               *\n");
-	printf("\t\t*       -----------------------------           *\n");
-	printf("\t\t*          WELCOME TO HOTEL TEAM 1              *\n");
-	printf("\t\t*       -----------------------------           *\n");
-	printf("\t\t*                                               *\n");
-	printf("\t\t*           Mentor: Le Ngoc Son                 *\n");
-	printf("\t\t*          Members: Nguyen Hoang Anh            *\n");
-	printf("\t\t*                   Tran Hai Dang               *\n");
-	printf("\t\t*                   Doan Viet Thanh             *\n");
-	printf("\t\t*                                               *\n");
-	printf("\t\t*************************************************\n");
+	printf("%c", 201);
+	for (int i = 0; i <= 80; i++) printf("%c", 205);
+	printf("%c\n", 187);
+	printf("%c                                                                                 %c\n", 186, 186);      
+	printf("%c                                                                                 %c\n", 186, 186);
+	printf("%c  OOOOOO    OOOOOO  OOOOOO  OOOOOO  OOOOOO  OOOOOO  O      O  OOOOOOO   OOOOOO   %c\n", 186, 186);
+	printf("%c  O         O    O  O       O         O       O     O O    O  O         O        %c\n", 186, 186);
+	printf("%c  O  OOOOO  OOOOOO  OOOOO   OOOOO     O       O     O  O   O  O  OOOOO  OOOOOO   %c\n", 186, 186);
+	printf("%c  O    O    O  O    O       O         O       O     O   O  O  O    O         O   %c\n", 186, 186);
+	printf("%c  OOOOOO    O   O   OOOOOO  OOOOOO    O     OOOOOO  O    O O  OOOOOO    OOOOOO   %c\n", 186, 186);
+	printf("%c                                                                                 %c\n", 186, 186);
+	
+	printf("%c", 204);
+	for (int i = 0; i <= 80; i++)
+		printf("%c", 205);
+	printf("%c\n", 185); 
+
+
+	// setcolor(9);
+	printf("%c\t\t                                                  \t\t  %c\n", 186, 186);
+	printf("%c\t\t *************************************************\t\t  %c\n", 186, 186);
+	printf("%c\t\t *                                               *\t\t  %c\n", 186, 186);
+	printf("%c\t\t *         -----------------------------         *\t\t  %c\n", 186, 186);
+	printf("%c\t\t *            WELCOME TO HOTEL TEAM 1            *\t\t  %c\n", 186, 186);
+	printf("%c\t\t *         -----------------------------         *\t\t  %c\n", 186, 186);
+	printf("%c\t\t *                                               *\t\t  %c\n", 186, 186);
+	printf("%c\t\t *            Mentor: Le Ngoc Son                *\t\t  %c\n", 186, 186);
+	printf("%c\t\t *           Members: Nguyen Hoang Anh           *\t\t  %c\n", 186, 186);
+	printf("%c\t\t *                    Tran Hai Dang              *\t\t  %c\n", 186, 186);
+	printf("%c\t\t *                    Doan Viet Thanh            *\t\t  %c\n", 186, 186);
+	printf("%c\t\t *                                               *\t\t  %c\n", 186, 186);
+	printf("%c\t\t *************************************************\t\t  %c\n", 186, 186);
+	printf("%c\t\t                                                  \t\t  %c\n", 186, 186);
+	printf("%c", 200);
+	for (int i = 0; i <= 80; i++)
+		printf("%c", 205);
+	printf("%c\n", 188);
+	
 	setcolor(15);
-	for (i = 0; i < 80; i++)
+	for (i = 0; i < 83; i++)
 		printf("-");
-	    printf("\nCurrent date and time : %s",ctime(&t));
-	    for(i=0;i<80;i++)
+	    printf("\n                 Current date and time : %s",ctime(&t));
+	    for(i=0;i<83;i++)
 		printf("-");
-	printf(" \n Press any key to continue:");
+	printf(" \n                            Press any key to continue  ");
 
 	getch();	
 	system("cls");
-    printf("Press '1' to Register\nPress '2' to Login\n\n");
-    scanf("%d", &option);
+	setcolor(9);
+	printf("Press '1' to Register\nPress '2' to Login\n\n");
+	scanf("%d", &option);
     getchar();
 
     if (option == 1)
