@@ -108,7 +108,6 @@ void add (int h, int i) {
 	// Validate checkout
 	isValid = 0;
 	while (!isValid) {
-		// Hello
 		// Input
 		printf("\nEnter day you checkout (dd/mm/yy): " );
 		fflush(stdin);
