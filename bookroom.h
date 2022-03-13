@@ -1,75 +1,91 @@
-void bookroom() {
-	char ch;
-	int i;
+#include <stdio.h>
+#include <conio.h>
+#include <ctype.h>
+#include <windows.h>
+#include <stdlib.h>
+#include <time.h>
+#include <string.h>
+#include <errno.h>
 
-    //Set id for each room
-	textcolor(14);
-	for (i = 1; i <= 20; ++i)
-		roomnumber[i].id_room = i;
-	roomstatus(roomnumber);
-	setcolor(9);
-// Pick room
-	RUN1: {
-	// ch = "";
-	printf("\n\n    Which room number you choose: ");
-	fflush(stdin);
-	scanf("%d", &i);
-	};
-    	
-   	//Check status of this room
-		if (roomnumber[i].status == 1 || i > 20 || i < 1) {
-			textcolor(12);
-			printf("\nThe room you choose is not available now or have been booked !\n");
-			printf("\nPlease pick another room >>   \n\n");
-			setcolor(9);
-		RUN5:
-			printf("\nReturn to home press --> \"H\" \nPick another room press --> \"A\" \n>>> ");
-			ch = getch();
-			if (ch == 'h' || ch == 'H')
-			{
-				mainMenu();
-			}
-			if (ch == 'a' || ch == 'A')
-				goto RUN1;
-			if (ch != 'a' || ch != 'A' || ch != 'h' || ch != 'H')
-				goto RUN5;
-    }
-				
-//======================================================================================
-		
-	//room type 1 max people is 2
-	if (i >= 1 && i <= 5 ){		
-		int h = 0; //h bieu thi chi so index cua cau truc kieu mang cost_room[4]
-		add(h, i); 
-  	}
-    
-   	//room type 2 max people is 5
-   	if (i >= 6 && i <= 10 ){
-		int h = 1;
-		add(h, i);
-   	}
-   	//room type 3 max people is 8
-   	if (i >= 11 && i <= 15 ){
-		int h = 2;
-		add(h, i);
-   	}
-   	//room type 4 max people is 11
-   	if (i >= 16 && i <= 20){
-   		int h = 3;
-   		add(h, i); 
+#define home main 
+#include "constants.h"
+#include "graphic.h"
+#include "add-cleaning-schedule.c"
+#include "login.h"
+#include "main-menu.h"
+#include "bookroom.h"
+#include "cancel.h"
+#include "edit.h"
+#include "exit.h"
+#include "search.h"
+#include "view.h"
+
+void setcolor(int ForgC)
+{ WORD wColor;
+HANDLE hStdOut=GetStdHandle(STD_OUTPUT_HANDLE);
+CONSOLE_SCREEN_BUFFER_INFO csbi;
+if(GetConsoleScreenBufferInfo(hStdOut,&csbi)) {
+	wColor=(csbi.wAttributes & 0xB0)+(ForgC & 0x0B);
+	SetConsoleTextAttribute(hStdOut,wColor);
 	}
 }
- 
-void add (int h, int i) { 
-   fp = fopen("rooms.txt", "a+"); 
-	if (fp == 0) {
-    	fp = fopen("rooms.txt", "a+");
-	    printf("Please hold on while we set our database in your computer !!");
-	    printf("\n Process completed press any key to continue !!");
-	    getch();
-	} 
 
+void home() {
+	SetConsoleCP(437);
+	SetConsoleOutputCP(437);
+	int option;
+	time_t t;
+	time(&t);
+	char choice;
+	system("cls"); 
+	textcolor(6);
+	printf("%c", 201);
+	for (int i = 0; i <= 80; i++) printf("%c", 205);
+	printf("%c\n", 187);
+	printf("%c                                                                                 %c\n", 186, 186);       
+	printf("%c                                                                                 %c\n", 186, 186);
+	printf("%c  OOOOOO    OOOOOO  OOOOOO  OOOOOO  OOOOOO  OOOOOO  O      O  OOOOOOO   OOOOOO   %c\n", 186, 186);
+	printf("%c  O         O    O  O       O         O       O     O O    O  O         O        %c\n", 186, 186);
+	printf("%c  O  OOOOO  OOOOOO  OOOOO   OOOOO     O       O     O  O   O  O  OOOOO  OOOOOO   %c\n", 186, 186);
+	printf("%c  O    O    O  O    O       O         O       O     O   O  O  O    O         O   %c\n", 186, 186);
+	printf("%c  OOOOOO    O   O   OOOOOO  OOOOOO    O     OOOOOO  O    O O  OOOOOO    OOOOOO   %c\n", 186, 186);
+	printf("%c                                                                                 %c\n", 186, 186);
+	
+	printf("%c", 204);
+	for (int i = 0; i <= 80; i++)
+		printf("%c", 205);
+	printf("%c\n", 185); 
+
+	printf("%c\t\t                                                  \t\t  %c\n", 186, 186);
+	printf("%c\t\t *************************************************\t\t  %c\n", 186, 186);
+	printf("%c\t\t *                                               *\t\t  %c\n", 186, 186);
+	printf("%c\t\t *         -----------------------------         *\t\t  %c\n", 186, 186);
+	printf("%c\t\t *            WELCOME TO HOTEL TEAM 1            *\t\t  %c\n", 186, 186);
+	printf("%c\t\t *         -----------------------------         *\t\t  %c\n", 186, 186);
+	printf("%c\t\t *                                               *\t\t  %c\n", 186, 186);
+	printf("%c\t\t *            Mentor: Le Ngoc Son                *\t\t  %c\n", 186, 186);
+	printf("%c\t\t *           Members: Nguyen Hoang Anh           *\t\t  %c\n", 186, 186);
+	printf("%c\t\t *                    Tran Hai Dang              *\t\t  %c\n", 186, 186);
+	printf("%c\t\t *                    Doan Viet Thanh            *\t\t  %c\n", 186, 186);
+	printf("%c\t\t *                                               *\t\t  %c\n", 186, 186);
+	printf("%c\t\t *************************************************\t\t  %c\n", 186, 186);
+	printf("%c\t\t                                                  \t\t  %c\n", 186, 186);
+	printf("%c", 200);
+	for (int i = 0; i <= 80; i++)  
+		printf("%c", 205);
+	printf("%c\n", 188);
+	
+	setcolor(15);
+	for (i = 0; i < 83; i++)
+		printf("-");
+	    printf("\n                 Current date and time : %s",ctime(&t));
+	    for(i=0;i<83;i++)
+		printf("-");
+	printf(" \n                            Press any key to continue  ");
+
+	getch();	 
 	system("cls");
+
 	roomnumber[i].numclient = 0;
 	roomnumber[i].id_room = i;
     printf("=================== ROOM %d ===================\n", i);
@@ -130,53 +146,24 @@ void add (int h, int i) {
 			printf("Your input is unvalid. Please try again!\n");
 			setcolor(9);
 		}
+
+	textcolor(10);
+
+	printf("\t\t%c", 218);
+	for (int i = 0; i <= 38; i++) {
+		printf("%c", 196);
+
 	}
+	printf("%c\n", 191);
 
-	// Validate checkout
-	isValid = 0;
-	while (!isValid) {
-		// Input
-		printf("\nEnter day you checkout (dd/mm/yy): " );
-		fflush(stdin);
-		scanf("%d/%d/%d", &roomnumber[i].checkout.dd, &roomnumber[i].checkout.mm, &roomnumber[i].checkout.yy );	
-		int day = roomnumber[i].checkout.dd;
-		int month = roomnumber[i].checkout.mm;
-		int year = roomnumber[i].checkout.yy;
+	printf("\t\t%c\t Enter '1' to Register \t\t%c\n", 179, 179);
+	printf("\t\t%c\t Enter '2' to Login    \t\t%c\n", 179, 179);
 
-		//check year
-		if (year >= 1900 && year <= 2100) {
-			//check month
-			if (month >= 1 && month <= 12) {
-				//check days
-				if((day >= 1 && day <= 31) && (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12))
-					isValid = 1;
-				else if((day >= 1 && day <= 30) && (month == 4 || month == 6 || month == 9 || month == 11))
-					isValid = 1;
-				else if((day >= 1 && day <= 28) && (month == 2))
-					isValid = 1;
-				else if(day == 29 && month == 2 && (year%400 == 0 ||(year%4 == 0 && year%100 != 0)))
-					isValid = 1;
-				else
-					isValid = 0;
-			}
-			else {
-				isValid = 0;
-			}
-		}
-		else {
-			isValid = 0;
-		}
-
-		// Notification
-		if (isValid != 1) {
-			textcolor(12);
-			printf("Your input is unvalid. Please try again!\n");
-			setcolor(9);
-		}
-		// !isValid ? printf("Your input is unvalid. Please try again!\n") : 0;
+	printf("\t\t%c", 192);
+	for (int i = 0; i <= 38; i++) {
+		printf("%c", 196);
 	}
-      
-    printf("\n--------------------------------------------------");
+	printf("%c\n", 217);
 
 	//Book service
 	printf("\n\nWe have these services\n");
@@ -345,7 +332,7 @@ void add (int h, int i) {
 			// Print total pay to "rooms.txt"	
 			fprintf(fp, "%d\n", roomnumber[i].total_pay);
 		  	break; 
-	}else if (ch == 'Y' || ch == 'y') {
+	} else if (ch == 'Y' || ch == 'y') {
          	roomnumber[i].numclient++;
      	        if (roomnumber[i].numclient > cost_room[h].max_people) {
 				textcolor(12);
@@ -374,50 +361,24 @@ void add (int h, int i) {
 	textcolor(14);
 	printf("\nSuccesfully requested booking\n");
 	setcolor(9);
-	printf("Press any key to return to main menu");
-	getch();
-	system("cls");
-	fflush(stdin);
+	printf("\t\t\t   Your choice is : ");
+	scanf("%d", &option);
+    getchar();
+
+    if (option == 1)
+        {
+            system("CLS");
+            registration();
+        }
+    else if (option == 2)
+        {
+            system("CLS");
+            login();
+        }  
+	else
+	 	{
+			home();
+		}
+    system("cls");
 	mainMenu();
-}
-
-
-void roomstatus(struct room_hotel *roomnumber){
-	char *pc;
-	FILE *f;
-	f = fopen("rooms.txt", "r");
-
-	int lineLength = 255, roomNum;
-    char line[lineLength], line2[lineLength]; /* not ISO 90 compatible */
-
-	// Read file to assign room.status = 1
-    while (fgets(line, sizeof(line), f)) {
-		if (line == "") break;
-
-		// Split string with delimeters to struct
-		// - Get room number
-		char * token = strtok(line, ", ");
-		roomNum = strtol(token, NULL, 10);
-
-		roomnumber[roomNum].status = 1;
-	}
-	fclose(f);
-
-    printf("\t\n\tRoom   \t  Category  \tPrice per night  \tAvailable\n");				
-	for (i = 1; i <= 5; ++i){
-		pc = roomnumber[i].status == 1 ? "NO" : "YES";	
-		printf("\t %d  \t%s        %d                  %s  \n\n", i,  cost_room[0].type, cost_room[0].price_per_night, pc);
-	}
-	for (i = 6; i <= 10; ++i){
-		pc = roomnumber[i].status == 1 ? "NO" : "YES";	
-		printf("\t %d  \t%s        %d                  %s  \n\n", i,  cost_room[1].type, cost_room[1].price_per_night, pc);
-	}
-	for (i = 11; i <= 15; ++i){
-		pc = roomnumber[i].status == 1 ? "NO" : "YES";	
-		printf("\t %d  \t%s        %d                  %s  \n\n", i,  cost_room[2].type, cost_room[2].price_per_night, pc);
-	}
-	for (i = 16; i <= 20; ++i) {
-		pc = roomnumber[i].status == 1 ? "NO" : "YES";	
-		printf("\t %d  \t%s        %d                 %s  \n\n", i,  cost_room[3].type, cost_room[3].price_per_night, pc);
-	}
 }
