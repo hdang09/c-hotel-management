@@ -3,28 +3,36 @@ void bookroom() {
 	int i;
 
     //Set id for each room
-    for (i = 1; i <= 20; ++i) roomnumber[i].id_room = i;
+	textcolor(14);
+	for (i = 1; i <= 20; ++i)
+		roomnumber[i].id_room = i;
 	roomstatus(roomnumber);
-	  
-    //Pick room
-    RUN1: {
-		//ch = "";
-		printf("\n\n    Which room number you choose: ");
-		fflush(stdin);
-		scanf("%d", &i);
+	setcolor(9);
+// Pick room
+	RUN1: {
+	// ch = "";
+	printf("\n\n    Which room number you choose: ");
+	fflush(stdin);
+	scanf("%d", &i);
 	};
     	
    	//Check status of this room
 		if (roomnumber[i].status == 1 || i > 20 || i < 1) {
-		printf("The room you choose is not available now or have been booked !\n");
-		printf("\nPlease pick another room >>   \n\n");
-		RUN5: printf("\nReturn to home press --> \"H\" \nPick another room press --> \"A\" \n>>> ");
-	    ch = getch();
-        if(ch == 'h' || ch == 'H'){
-			mainMenu();
-		}
-		if (ch == 'a' || ch == 'A')  goto RUN1;
-		if (ch != 'a' || ch != 'A' || ch != 'h' || ch != 'H' )  goto RUN5;
+			textcolor(12);
+			printf("\nThe room you choose is not available now or have been booked !\n");
+			printf("\nPlease pick another room >>   \n\n");
+			setcolor(9);
+		RUN5:
+			printf("\nReturn to home press --> \"H\" \nPick another room press --> \"A\" \n>>> ");
+			ch = getch();
+			if (ch == 'h' || ch == 'H')
+			{
+				mainMenu();
+			}
+			if (ch == 'a' || ch == 'A')
+				goto RUN1;
+			if (ch != 'a' || ch != 'A' || ch != 'h' || ch != 'H')
+				goto RUN5;
     }
 				
 //======================================================================================
@@ -48,7 +56,7 @@ void bookroom() {
    	//room type 4 max people is 11
    	if (i >= 16 && i <= 20){
    		int h = 3;
-   		add(h, i);
+   		add(h, i); 
 	}
 }
  
@@ -65,7 +73,7 @@ void add (int h, int i) {
 	roomnumber[i].numclient = 0;
 	roomnumber[i].id_room = i;
     printf("=================== ROOM %d ===================\n", i);
-    printf("\nPrice per night is %d", cost_room[h].price_per_night);
+    printf("\nPrice per night is %d", cost_room[h].price_per_night); 
 	printf("\nNote: Max people in %s is %d", cost_room[h].type, cost_room[h].max_people );		   
 	printf("\nEnter period (\'x\'days):  ");
     scanf("%d", &roomnumber[i].longstay);
@@ -82,7 +90,7 @@ void add (int h, int i) {
 		int year = roomnumber[i].checkin.yy;
 
 		//check year
-		if (year >= 1900 && year <= 2100) {
+		if (year >= 1900 && year <= 2100) { 
 			//check month
 			if (month >= 1 && month <= 12) {
 				//check days
@@ -106,7 +114,11 @@ void add (int h, int i) {
 		}
 
 		// Notification
-		!isValid ? printf("Your input is unvalid. Please try again!\n") : 0;
+		if (isValid != 1) {
+			textcolor(12);
+			printf("Your input is unvalid. Please try again!\n");
+			setcolor(9);
+		}
 	}
 
 	// Validate checkout
@@ -145,7 +157,12 @@ void add (int h, int i) {
 		}
 
 		// Notification
-		!isValid ? printf("Your input is unvalid. Please try again!\n") : 0;
+		if (isValid != 1) {
+			textcolor(12);
+			printf("Your input is unvalid. Please try again!\n");
+			setcolor(9);
+		}
+		// !isValid ? printf("Your input is unvalid. Please try again!\n") : 0;
 	}
       
     printf("\n--------------------------------------------------");
@@ -153,7 +170,7 @@ void add (int h, int i) {
 	//Book service
 	printf("\n\nWe have these services\n");
 	printf("1. Service 1 cost 100000\n");
-	printf("2. Service 2 cost 100000\n ");
+	printf("2. Service 2 cost 100000\n");
 	printf("3. Service 3 cost 200000\n");
 	printf("4. Service 4 cost 200000\n");
 	printf("5. Service 5 cost 400000\n");
@@ -167,11 +184,13 @@ void add (int h, int i) {
     for (a=1; a<=5; a++){
 	    if (roomnumber[i].service_in_use[a] == 1 ) {			
 				cost_service[a] = list_service[a - 1].price_service;
-		}else if(roomnumber[i].service_in_use[a] == 0) 
+		} else if(roomnumber[i].service_in_use[a] == 0) {
 				cost_service[a] = 0;
-	    else{
-	    		printf("ERROR !\n");
-		        goto RUN3;
+		} else{
+			textcolor(12);
+			printf("ERROR !\n");
+			setcolor(9);
+			goto RUN3;
 		}
 	}		
 	
@@ -223,7 +242,12 @@ void add (int h, int i) {
 			}
 
 			// Notification
-			!isValid ? printf("Your input is unvalid. Please try again!\n") : 0;
+			if (isValid != 1) {
+				textcolor(12);
+				printf("Your input is unvalid. Please try again!\n");
+				setcolor(9);
+			}
+			// !isValid ? printf("Your input is unvalid. Please try again!\n") : 0;
 		}
 		
 		// Validate sex
@@ -247,7 +271,12 @@ void add (int h, int i) {
 			};
 
 			// Notification
-			!isValid ? printf("Your input is unvalid. Please try again!\n") : 0;
+			if (isValid != 1) {
+				textcolor(12);
+				printf("\nYour input is unvalid. Please try again!\n");
+				setcolor(9);
+			}
+			// !isValid ? printf("Your input is unvalid. Please try again!\n") : 0;
 		}
 		printf("\n");
 
@@ -260,7 +289,9 @@ void add (int h, int i) {
 			int length = strlen(phone);
 			if( length != 10)
 			{
-				printf("Phone number contains only 10 number characters ! \n");
+				textcolor(12);
+				printf("Phone number contains only 10 number characters! Please try again\n");
+				setcolor(9);
 				goto RUN2;
 			}
 			for (c = 0; c < 10; c++ ) {
@@ -304,9 +335,11 @@ void add (int h, int i) {
 		} else if (ch == 'Y' || ch == 'y') {
          	roomnumber[i].numclient++;
      	    if (roomnumber[i].numclient > cost_room[h].max_people) {
-     	       	printf("Sorry the room has max people !\n");
-     	        break;   					
-    	   }
+				textcolor(12);
+				printf("Sorry the room has max people !\n");
+				setcolor(9);
+				break;
+		   }
     	}
 
 		// Print to "rooms.txt" file
@@ -324,10 +357,11 @@ void add (int h, int i) {
 	fclose(fp);	
     
     roomnumber[i].status = 1; // 1: Room has been booked
-    printf("Succesfully requested booking\n");
-    
-	printf("\nPress any key to return to main menu");
-    getch();
+	textcolor(14);
+	printf("\nSuccesfully requested booking\n");
+	setcolor(9);
+	printf("Press any key to return to main menu");
+	getch();
 	system("cls");
 	fflush(stdin);
 	mainMenu();
