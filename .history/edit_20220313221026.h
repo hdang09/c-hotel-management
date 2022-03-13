@@ -116,7 +116,7 @@ void edit()
                 int year = s.checkin2.yy;
 
                 //check year
-                if (year >= 2022 && year <= 2100) {
+                if (year >= 1900 && year <= 2100) {
                     //check month
                     if (month >= 1 && month <= 12) {
                         //check days
@@ -160,7 +160,7 @@ void edit()
                 int year = s.checkout2.yy;
 
                 //check year
-                if (year >= 2022 && year <= 2100) {
+                if (year >= 1900 && year <= 2100) {
                     //check month
                     if (month >= 1 && month <= 12) {
                         //check days
@@ -208,7 +208,7 @@ void edit()
                 int year = s.birth2.yy;
 
                 //check year
-                if (year >= 1900 && year <= 2100) {
+                if (year >= 2022 && year <= 2100) {
                     //check month
                     if (month >= 1 && month <= 12) {
                         //check days
