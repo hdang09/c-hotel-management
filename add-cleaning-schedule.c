@@ -92,7 +92,7 @@ void addCleaningSchedule() {
             int hour = clean.timeCleaning.hh;
             int minute = clean.timeCleaning.mm;
 
-            isValid = (hour < 24) && (minute < 60) ? 1 : 0;
+            isValid = (hour < 24) && (minute < 60) && (hour >= 0) && (minute >= 0)  ? 1 : 0;
 
             // Notification
             if (isValid != 1) {
