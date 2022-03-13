@@ -24,7 +24,7 @@ void bookroom() {
 			setcolor(9);
 		RUN5:
 			printf("\nReturn to home press --> \"H\" \nPick another room press --> \"A\" \n>>> ");
-			ch = getche();
+			ch = getch();
 			if (ch == 'h' || ch == 'H')
 			{
 				mainMenu();
@@ -34,7 +34,7 @@ void bookroom() {
 			if (ch != 'a' || ch != 'A' || ch != 'h' || ch != 'H')
 				goto RUN5;
     }
-
+				
 //======================================================================================
 		
 	//room type 1 max people is 2
@@ -174,10 +174,8 @@ void add (int h, int i) {
 	printf("3. Service 3 cost 200000\n");
 	printf("4. Service 4 cost 200000\n");
 	printf("5. Service 5 cost 400000\n");
-	printf("\nNote: if you choose service 1 and 2 just type \" 1_1_2_2_2 \" with \"_\" mean space, \"2\" mean you don't want \n");
-	
-	RUN3: 
-	printf("Your option: ");
+	printf("\nNote: if you choose service 1 and 2 just type \" 1_1_0_0_0 \" with \"_\" mean space, \"0\" mean you don't want \n");
+	RUN3: printf("Your option: ");
 	fflush(stdin);
 	int a;
 	for (a=1; a<=5; a++){
@@ -186,9 +184,9 @@ void add (int h, int i) {
     for (a=1; a<=5; a++){
 	    if (roomnumber[i].service_in_use[a] == 1 ) {			
 				cost_service[a] = list_service[a - 1].price_service;
-		} else if(roomnumber[i].service_in_use[a] == 2) {
+		} else if(roomnumber[i].service_in_use[a] == 0) {
 				cost_service[a] = 0;
-		} else {
+		} else{
 			textcolor(12);
 			printf("ERROR !\n");
 			setcolor(9);
@@ -211,7 +209,7 @@ void add (int h, int i) {
 		// Validate birthday
 		isValid = 0;
 		while (!isValid) {
-			// Input 
+			// Input
 			printf("\nBirthday (dd/mm/yyyy): ");
 			fflush(stdin);
 			scanf("%d/%d/%d", &roomnumber[i].client.birth.dd, &roomnumber[i].client.birth.mm, &roomnumber[i].client.birth.yy);
@@ -286,8 +284,7 @@ void add (int h, int i) {
 		{
 			int c;
 			char phone[15];
-			RUN2: 
-			printf("\nPhone number: ");
+			RUN2: printf("\nPhone number: ");
 			scanf("%s", phone);
 			int length = strlen(phone);
 			if( length != 10)
@@ -328,7 +325,7 @@ void add (int h, int i) {
 	printf("\n\nDo you want to add one more people press \"Y\" \n If NO press \"N\"");      	     		
         printf("\nY/N >>>  ");
 	fflush(stdin);
-        ch = getche();
+        ch = getch();
         if (ch == 'N' || ch == 'n') {
 			for (int a = 1; a <= 5; a++) fprintf(fp, "%d, ", roomnumber[i].service_in_use[a]);   	    			
 
@@ -337,19 +334,20 @@ void add (int h, int i) {
 			// Print total pay to "rooms.txt"	
 			fprintf(fp, "%d\n", roomnumber[i].total_pay);
 		  	break; 
-		} else if (ch == 'Y' || ch == 'y') {
+	}else if (ch == 'Y' || ch == 'y') {
          	roomnumber[i].numclient++;
      	        if (roomnumber[i].numclient > cost_room[h].max_people) {
 				textcolor(12);
 				printf("Sorry the room has max people !\n");
 				setcolor(9);
 				break;
-		    } 
+		   } 
     	}
-		else goto RUN6;
+	else goto RUN6;
 
 		// Print to "rooms.txt" file
 		for (int a = 1; a <= 5; a++) fprintf(fp, "%d, ", roomnumber[i].service_in_use[a]);   	    			
+
 		// Caluculate total pay
 		roomnumber[i].total_pay = roomnumber[i].longstay * (cost_room[h].price_per_night + cost_service[1] + cost_service[2] + cost_service[3] + cost_service[4] + cost_service[5] );
 		// Print total pay to "rooms.txt"	
