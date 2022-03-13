@@ -193,7 +193,7 @@ void add (int h, int i) {
 		scanf("%d", &roomnumber[i].service_in_use[a]);
 	}
     for (a=1; a<=5; a++){
-	    if (roomnumber[i].service_in_use[a] == 1 ) 			
+	    if (roomnumber[i].service_in_use[a] == 1) 			
 				cost_service[a] = list_service[a - 1].price_service;
 		else if(roomnumber[i].service_in_use[a] == 0)
 				cost_service[a] = 0;
@@ -345,7 +345,7 @@ void add (int h, int i) {
 			// Print total pay to "rooms.txt"	
 			fprintf(fp, "%d\n", roomnumber[i].total_pay);
 		  	break; 
-	}else if (ch == 'Y' || ch == 'y') {
+	} else if (ch == 'Y' || ch == 'y') {
          	roomnumber[i].numclient++;
      	        if (roomnumber[i].numclient > cost_room[h].max_people) {
 				textcolor(12);

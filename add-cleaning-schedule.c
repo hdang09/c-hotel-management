@@ -17,13 +17,15 @@ void addCleaningSchedule() {
     FILE *c;
     char test;
     c = fopen("cleaning.txt", "a+");
+
     if (c == 0) {
-        c = fopen("add.txt", "w+");
+        c = fopen("cleaning.txt", "w+");
         system("cls");
         printf("Please hold on while we set our database in your computer !!");
         printf("\nProcess completely press any key to continue !!");
         getch();
     }
+
     while (1) {
         system("cls");
         printf("******************* ROOM CLEANING SCHEDULE *******************");
@@ -51,7 +53,7 @@ void addCleaningSchedule() {
             int year = clean.dateCleaning.yy;
 
             //check year
-            if (year >= 1900 && year <= 2100) {
+            if (year >= 2022 && year <= 2100) {
                 //check month
                 if (month >= 1 && month <= 12) {
                     //check days
@@ -103,7 +105,6 @@ void addCleaningSchedule() {
         }
 
         fwrite(&clean, sizeof(clean), 1, c);
-        fflush(stdin);
         textcolor(14);
         printf("\n\nAdd room cleaning schedule is successfully booked !!\n\n");
         setcolor(9);
@@ -111,6 +112,7 @@ void addCleaningSchedule() {
         printf(" Press another key: Add another room for cleaning");
         test = getche();
         if (test == 27) {
+            fclose(c);
             mainMenu();
         }
     }
@@ -120,7 +122,7 @@ void addCleaningSchedule() {
 void showCleaningSchedule() {
     FILE *c;
     textcolor(10);
-    if ((c = fopen("cleaning.txt", "r")) == NULL)
+    if ((c = fopen("cleaning.txt", "r+")) == NULL)
     {
         exit(0);
     }
@@ -129,7 +131,7 @@ void showCleaningSchedule() {
     printf("Date for cleaning\t");
     printf("Time for cleaning\t\n");
    
-    while(fread(&clean, sizeof(clean), 1, c) == 1) {
+    while (fread(&clean, sizeof(clean), 1, c) == 1) {
         // printf(" \n %d \t   %d/%d/%d \t\t     %d:%d\n", clean.roomCleaning, 
         // clean.dateCleaning.dd, clean.dateCleaning.mm, clean.dateCleaning.yy,
         // clean.timeCleaning.hh, clean.timeCleaning.mm);
@@ -150,9 +152,8 @@ void showCleaningSchedule() {
         }
     }
     setcolor(9);
+    fclose(c);
     printf("\nPress any key to go back to main menu");
     getch();
     mainMenu();
-    fclose(c);
-    getch();
 }
