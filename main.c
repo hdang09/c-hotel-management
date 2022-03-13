@@ -8,7 +8,6 @@
 #include <errno.h>
 
 #define home main 
-
 #include "constants.h"
 #include "graphic.h"
 #include "add-cleaning-schedule.c"
@@ -16,7 +15,6 @@
 #include "main-menu.h"
 #include "bookroom.h"
 #include "cancel.h"
-//#include "delete-customer.c"
 #include "edit.h"
 #include "exit.h"
 #include "search.h"
@@ -28,7 +26,6 @@ HANDLE hStdOut=GetStdHandle(STD_OUTPUT_HANDLE);
 CONSOLE_SCREEN_BUFFER_INFO csbi;
 if(GetConsoleScreenBufferInfo(hStdOut,&csbi)) {
 	wColor=(csbi.wAttributes & 0xB0)+(ForgC & 0x0B);
-//	SetConsoleTextAttributes(hStdOut,wColor);
 	SetConsoleTextAttribute(hStdOut,wColor);
 	}
 }
@@ -40,8 +37,8 @@ void home() {
 	time_t t;
 	time(&t);
 	char choice;
-	system("cls");   // FOR CLEARING SCREEN
-	setcolor(15);
+	system("cls"); 
+	textcolor(6);
 	printf("%c", 201);
 	for (int i = 0; i <= 80; i++) printf("%c", 205);
 	printf("%c\n", 187);
@@ -59,8 +56,6 @@ void home() {
 		printf("%c", 205);
 	printf("%c\n", 185); 
 
-
-	// setcolor(9);
 	printf("%c\t\t                                                  \t\t  %c\n", 186, 186);
 	printf("%c\t\t *************************************************\t\t  %c\n", 186, 186);
 	printf("%c\t\t *                                               *\t\t  %c\n", 186, 186);
@@ -88,10 +83,27 @@ void home() {
 		printf("-");
 	printf(" \n                            Press any key to continue  ");
 
-	getch();	
+	getch();	 
 	system("cls");
+	textcolor(10);
+
+	printf("\t\t%c", 218);
+	for (int i = 0; i <= 38; i++) {
+		printf("%c", 196);
+	}
+	printf("%c\n", 191);
+
+	printf("\t\t%c\t Enter '1' to Register \t\t%c\n", 179, 179);
+	printf("\t\t%c\t Enter '2' to Login    \t\t%c\n", 179, 179);
+
+	printf("\t\t%c", 192);
+	for (int i = 0; i <= 38; i++) {
+		printf("%c", 196);
+	}
+	printf("%c\n", 217);
+
 	setcolor(9);
-	printf("Press '1' to Register\nPress '2' to Login\n\n");
+	printf("\t\t\t   Your choice is : ");
 	scanf("%d", &option);
     getchar();
 
@@ -104,7 +116,7 @@ void home() {
         {
             system("CLS");
             login();
-        }
+        }  
 	else
 	 	{
 			home();
