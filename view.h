@@ -77,14 +77,16 @@ void view() {
 		if (roomNumber != s.room2) {
 			// Export: Roon number, longstay, checkin, checkout
 			printf("\n\n");
-			for (int i = 0; i < 32; i++) {
+			textcolor(6);
+			for (int i = 0; i < 32; i++)
+			{
 				printf("%c", 205);
 			}
 			printf(" ROOM %d ", s.room2);
 			for (int i = 0; i < 32; i++) {
 				printf("%c", 205);
 			}
-			
+			setcolor(9);
 			printf("\nPeriod days : %d\n", s.longstay2);
 			printf("Checkin     : %d/%d/%d\n", s.checkin2.dd, s.checkin2.mm, s.checkin2.yy);
 			printf("Checkout    : %d/%d/%d\n", s.checkout2.dd, s.checkout2.mm, s.checkout2.yy);
