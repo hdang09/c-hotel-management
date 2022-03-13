@@ -30,7 +30,7 @@ if(GetConsoleScreenBufferInfo(hStdOut,&csbi)) {
 	}
 }
 
-void home() {
+void home() { 
 	SetConsoleCP(437);
 	SetConsoleOutputCP(437);
 	int option;
