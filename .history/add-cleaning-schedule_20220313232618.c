@@ -151,7 +151,6 @@ void showCleaningSchedule() {
     }
     setcolor(9);
     printf("\nPress any key to go back to main menu");
-    getch();
     fclose(c);
     getch();
 }

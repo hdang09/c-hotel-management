@@ -111,7 +111,7 @@ void addCleaningSchedule() {
         printf(" Press another key: Add another room for cleaning");
         test = getche();
         if (test == 27) {
-            mainMenu();
+            break;
         }
     }
     fclose(c);
@@ -151,7 +151,6 @@ void showCleaningSchedule() {
     }
     setcolor(9);
     printf("\nPress any key to go back to main menu");
-    getch();
     fclose(c);
     getch();
 }
