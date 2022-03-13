@@ -33,7 +33,9 @@ void addCleaningSchedule() {
         fflush(stdin);
         scanf("%d", &clean.roomCleaning);
         if (clean.roomCleaning < 1 || clean.roomCleaning > 20) {
+            textcolor(12);
             printf("Your input is unvalid. Please try again!\n");
+            setcolor(9);
             goto RUN4;
         }
 
@@ -73,7 +75,11 @@ void addCleaningSchedule() {
             }
 
             // Notification
-            !isValid ? printf("Your input is unvalid. Please try again!\n") : 0;
+            if (isValid != 1) {
+                textcolor(12);
+                printf("Your input is unvalid. Please try again!\n");
+                setcolor(9);
+            }
         }
 
         // Validate cleaning time
@@ -89,12 +95,18 @@ void addCleaningSchedule() {
             isValid = (hour < 24) && (minute < 60) ? 1 : 0;
 
             // Notification
-            !isValid ? printf("Your input is unvalid. Please try again!\n") : 0;
+            if (isValid != 1) {
+                textcolor(12);
+                printf("Your input is unvalid. Please try again!\n");
+                setcolor(9);
+            }
         }
 
         fwrite(&clean, sizeof(clean), 1, c);
         fflush(stdin);
+        textcolor(14);
         printf("\n\nAdd room cleaning schedule is successfully booked !!\n\n");
+        setcolor(9);
         printf(" Press 'ESC': Go back to main menu\n");
         printf(" Press another key: Add another room for cleaning");
         test = getche();
@@ -104,10 +116,12 @@ void addCleaningSchedule() {
     }
     fclose(c);
 }
- 
+
 void showCleaningSchedule() {
     FILE *c;
-    if ((c = fopen("cleaning.txt", "r")) == NULL) {
+    textcolor(10);
+    if ((c = fopen("cleaning.txt", "r")) == NULL)
+    {
         exit(0);
     }
     system("cls");
@@ -120,11 +134,8 @@ void showCleaningSchedule() {
         clean.dateCleaning.dd, clean.dateCleaning.mm, clean.dateCleaning.yy,
         clean.timeCleaning.hh, clean.timeCleaning.mm);
     }
-   
+    setcolor(9);
     printf("Press any key to go back to main menu");
     fclose(c);
     getch();
 }
- 
-
-
