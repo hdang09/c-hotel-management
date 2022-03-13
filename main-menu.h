@@ -8,9 +8,11 @@ void mainMenu() {
 	for(i = 0; i < 80; i ++) printf("-");
 	printf("\n");
 
-	printf("\t\t      Please enter your choice for menu");
-	printf("\n\n");
+	printf("\t\t      Please enter your choice for menu\n\n");
 
+
+
+	textcolor(10);
 	printf("\t   %c", 218);
 	for (int i = 0; i <= 50; i++)
 		printf("%c", 196);
@@ -74,7 +76,7 @@ void mainMenu() {
 	}
 	printf("%c", 217);
 
-
+	setcolor(9);
 	printf("\n\n\t\t\t    Your choice is: ");
 	fflush(stdin);
 	input = getchar();

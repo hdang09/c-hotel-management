@@ -127,7 +127,12 @@ void edit()
                 }
 
                 // Notification
-                !isValid ? printf("Your input is unvalid. Please try again!\n") : 0;
+                if (isValid != 1) {
+                    textcolor(12);
+                    printf("Your input is unvalid. Please try again!\n");
+                    setcolor(9);
+		        }
+                // !isValid ? printf("Your input is unvalid. Please try again!\n") : 0;
             }
 
             // Validate checkout
@@ -166,7 +171,12 @@ void edit()
                 }
 
                 // Notification
-                !isValid ? printf("Your input is unvalid. Please try again!\n") : 0;
+                if (isValid != 1) {
+                    textcolor(12);
+                    printf("Your input is unvalid. Please try again!\n");
+                    setcolor(9);
+		        }
+                // !isValid ? printf("Your input is unvalid. Please try again!\n") : 0;
             }
             
             printf("\n\nEnter your fullname: ");
@@ -209,7 +219,12 @@ void edit()
                 }
 
                 // Notification
-                !isValid ? printf("Your input is unvalid. Please try again!\n") : 0;
+                if (isValid != 1) {
+                    textcolor(12);
+                    printf("Your input is unvalid. Please try again!\n");
+                    setcolor(9);
+		        }
+                // !isValid ? printf("Your input is unvalid. Please try again!\n") : 0;
             }
             
             // Validate sex
@@ -233,7 +248,12 @@ void edit()
                 };
 
                 // Notification
-                !isValid ? printf("Your input is unvalid. Please try again!\n") : 0;
+                if (isValid != 1) {
+                    textcolor(12);
+                    printf("Your input is unvalid. Please try again!\n");
+                    setcolor(9);
+		        }
+                // !isValid ? printf("Your input is unvalid. Please try again!\n") : 0;
             }
 
             // Validate phone number
@@ -243,9 +263,10 @@ void edit()
                 RUN2: printf("\nPhone number: ");
                 scanf("%s", phone );
                 int length = strlen(phone);
-                if( length != 10)
-                {
+                if( length != 10) {
+                    textcolor(12);
                     printf("Phone number contains only 10 number characters ! \n");
+                    setcolor(9);
                     goto RUN2;
                 }
                 for (c = 0; c < 10; c++ ) {
@@ -262,7 +283,7 @@ void edit()
 
             printf("\n\nWe have these services\n");
             printf("1. Service 1 cost 100000\n");
-            printf("2. Service 2 cost 100000\n ");
+            printf("2. Service 2 cost 100000\n");
             printf("3. Service 3 cost 200000\n");
             printf("4. Service 4 cost 200000\n");
             printf("5. Service 5 cost 400000\n");
@@ -276,13 +297,15 @@ void edit()
             for(a=1; a<=5; a++){
 	        if (roomnumber[i].service_in_use[a] == 1 ) {			
 				cost_service[a] = list_service[a - 1].price_service;
-		}else if(roomnumber[i].service_in_use[a] == 0) 
+		    }else if(roomnumber[i].service_in_use[a] == 0) {
 				cost_service[a] = 0;
-	        else{
-	    		printf("ERROR !\n");
-		        goto RUN3;
-		}
-	   }
+            } else{
+                textcolor(12);
+                printf("ERROR !\n");
+                setcolor(9);
+                goto RUN3;
+                }
+	        }
             // fseek(f, size, SEEK_CUR);  //to go to desired position infile
             fprintf(t, "%d, %d, %d/%d/%d, %d/%d/%d,", 
             s.room2,
@@ -319,12 +342,16 @@ void edit()
 		}
 	}
 
-    if (k == 1)
+    if (k == 1) {
+        textcolor(12);
         printf("\n\nTHE RECORD DOESN'T EXIST!!!!");
-    else
+        setcolor(9);
+    } else {
+        textcolor(14);
         printf("\n\n\t\tYOUR RECORD IS SUCCESSFULLY EDITED!!!");
+        setcolor(9);
+    }
 
-    
     //	File handling
     fclose(f);
     fclose(t);
@@ -336,5 +363,3 @@ void edit()
     getch();
     mainMenu();
 }
- 
-

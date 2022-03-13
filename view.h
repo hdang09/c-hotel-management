@@ -5,10 +5,8 @@ void view() {
 	fp = fopen("rooms.txt", "r+");
 
 //	int cost
-
 	int lineLength = 255, roomNumber, numClient = 1;
     char line[lineLength], line2[lineLength]; /* not ISO 90 compatible */
-
     while (fgets(line, sizeof(line), fp)) {
 		// Copy a new string from line to line2
 		strcpy(line2, line);
@@ -78,13 +76,6 @@ void view() {
 		// Handling
 		if (roomNumber != s.room2) {
 			// Export: Roon number, longstay, checkin, checkout
-
-			// printf("\n\n\n=============== ROOM %d =============== \n Period days %d\n Checkin %d/%d/%d \n checkout %d/%d/%d \n ",
-			// s.room2,
-			// s.longstay2,
-			// s.checkin2.dd, s.checkin2.mm, s.checkin2.yy,
-			// s.checkout2.dd, s.checkout2.mm, s.checkout2.yy);
-
 			printf("\n\n");
 			for (int i = 0; i < 32; i++) {
 				printf("%c", 205);
@@ -97,14 +88,10 @@ void view() {
 			printf("\nPeriod days : %d\n", s.longstay2);
 			printf("Checkin     : %d/%d/%d\n", s.checkin2.dd, s.checkin2.mm, s.checkin2.yy);
 			printf("Checkout    : %d/%d/%d\n", s.checkout2.dd, s.checkout2.mm, s.checkout2.yy);
-
-
-
 			// Export services
 			printf("\n\nServices in use: \n Service 1 \t Service 2 \t Service 3 \t Service 4 \t Service 5 \n ");
 			for (int a = 0; a < 5; a++) {    	    			
 				if (s.service_in_use2[a] == 1 ) {
-					// cost_service[a] = list_service[a - 1].price_service;
 					printf("YES              ");
 				}
 				else {
@@ -112,8 +99,6 @@ void view() {
 					printf("NO              ");		
 				}
 			}
-			// payy = s.longstay * (cost_room[h].price_per_night + cost_service[1] + cost_service[2] + cost_service[3] + cost_service[4] + cost_service[5] );
-
 			// Export total pay
 			printf("\nTotal pay: %d\n", s.total_pay2);
 			roomNumber = s.room2;
@@ -128,12 +113,8 @@ void view() {
 		s.phone2,
 		s.email2);   
 		numClient++;
-		
-
 	}
-
 	fclose(fp);
-
 	printf("\nPress anykey to return home screen");
 	getch();
 	system("cls");

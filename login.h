@@ -48,55 +48,47 @@ void login(void) {
         if (token != NULL) strcpy(l.password, token);
     }
 
-    if (strcmp(username, l.username) == 0 && strcmp(password, l.password) == 0)  
-            printf("\nSuccessful Login\n");
-            // printf("Press any key to continue");
-            // getch();
-    else {
-            printf("\nIncorrect Login Details\nPlease enter the correct credentials\n\n");
-            printf("Press 'A': Type again\n");
-            printf("Press 'C': Create an account if you don't have any account\n");
-            c = getch();
-
-            if (c == 'a' || c == 'A') {
-                login();
-            } else if (c == 'c' || c == 'C') {
+    if (strcmp(username, l.username) == 0 && strcmp(password, l.password) == 0) {
+        textcolor(6);
+        printf("\n\nSuccessful Login\n");
+        setcolor(9);
+    } else {
+        printf("\nIncorrect Login Details\nPlease enter the correct credentials\n\n");
+        printf("Press 'A': Type again\n");
+        printf("Press 'C': Create an account if you don't have any account\n");
+        c = getch();
+        if (c == 'a' || c == 'A') {
+            login();
+        } else if (c == 'c' || c == 'C') {
                 registration();
-            } else {
-                printf("Invalid input. Please try again!");
-                getch();
-                home();
-            }
+        } else {
+            printf("Invalid input. Please try again!");
+            getch();
+            home();
         }
+    } 
 
-    printf("Press any key to continue...");
+    printf("\nPress any key to continue...");
     getch();
     mainMenu();
     fclose(log);
-    
     return;
 }
  
 void registration(void) { 
     system("cls");
-
     int i = 0;
     char name[15], c;
     FILE *log;
- 
     log = fopen("account.txt", "w");
     if (log == NULL) {
         fputs("Error at opening File!", stderr);
         exit(1);
     }
     printf("\nWe need to enter some details for registration.\n\n");
-
-    // printf("Enter your name: ");
-    // scanf("%s", &name);
     printf("\nEnter Username: ");
     scanf("%s", l.username);
     printf("\nEnter Password: ");
-    // scanf("%s", l.password);
     while (i < 30) {
 	    l.password[i] = getch();
 	    c = l.password[i];
@@ -107,31 +99,9 @@ void registration(void) {
 
     fprintf(log, "%s %s", l.username, l.password);
     fclose(log);
-    // printf("\nConfirming details...\n...\nWelcome, %s!\n\n", name);
     printf("\nRegistration Successful!\n");
-    printf("Press any key to continue...");
+    printf("\nPress any key to continue...");
     getch();
     system("CLS");
     login();
 }
-
- 
-//void createLoginSystem(void) {
-//    int option;
-//    printf("Press '1' to Register\nPress '2' to Login\n\n");
-//    scanf("%d", &option);
-//    getchar();           // catching newline.
-//    if(option == 1)
-//        {
-//            system("CLS");
-//            registration();
-//        }
-//    else if(option == 2)
-//        {
-//            system("CLS");
-//            login();
-//        }
-//        system("cls");
-//}
- 
-
