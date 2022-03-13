@@ -8,7 +8,7 @@ void bookroom() {
 		roomnumber[i].id_room = i;
 	roomstatus(roomnumber);
 	setcolor(9);
-// Pick room
+// Pick room 
 	RUN1: {
 	// ch = "";
 	printf("\n\n    Which room number you choose: ");
