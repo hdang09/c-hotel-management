@@ -1,7 +1,7 @@
 void view() {
 	FILE *fp;
 //	fp = NULL;
-	char arr[100000], *sexString;
+	char arr[100000], sexString[6];
 	fp = fopen("rooms.txt", "r+");
 
 //	int cost
@@ -105,28 +105,11 @@ void view() {
 			numClient = 1;
 		}
 
-		switch (s.sex2[0]) {
-			case 'f':
-			case 'F':
-				sexString = "Female";
-				break;
-			case 'm':
-			case 'M':
-				sexString = "Male";
-				break;
-			case 'o':
-			case 'O':
-				sexString = "Others";
-				break;	
-			// default:
-			// 	sexString = '';
-		}
-
 		printf("\nPerson %d \n >>----------<< \n Fullname:\t\t%s \n Birthday (mm/dd/yyyy): %d/%d/%d \n Sex: \t\t\t%s \n Phone number:\t\t%d \n Email:\t\t\t%s\n", 
 		numClient,
 		s.name2,
 		s.birth2.dd, s.birth2.mm, s.birth2.yy,
-		sexString,
+		s.sex2,
 		s.phone2,
 		s.email2);   
 		numClient++;

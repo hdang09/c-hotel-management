@@ -90,19 +90,16 @@ void edit()
 
             // Validate longstay
             char c;
-            RUN10: printf("\nEnter period (\'x\'days): ");
+            RUN8: printf("\nEnter period (\'x\'days): ");
             fflush(stdin);
-            if (scanf("%d%c", &s.longstay2, &c) != 2 
+            if (scanf("%d%c", &roomnumber[i].longstay, &c) != 2 
                 || c != '\n' 
-                || s.longstay2 == 0) {
+                || roomnumber[i].longstay == 0) {
                 textcolor(12);
                 printf("Error\n");
                 setcolor(9);
-                goto RUN10;	
+                goto RUN8;	
             }
-
-            // printf("\nEnter period(\'x\'days):  ");
-            // scanf("%d",  &s.longstay2);
 
             // Validate checkin
             isValid = 0;

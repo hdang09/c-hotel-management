@@ -75,19 +75,8 @@ void add (int h, int i) {
     printf("=================== ROOM %d ===================\n", i);
     printf("\nPrice per night is %d", cost_room[h].price_per_night); 
 	printf("\nNote: Max people in %s is %d", cost_room[h].type, cost_room[h].max_people );		   
-
-	// Validate longstay
-	char c;
-	RUN8: printf("\nEnter period (\'x\'days): ");
-	fflush(stdin);
-	if (scanf("%d%c", &roomnumber[i].longstay, &c) != 2 
-		|| c != '\n' 
-		|| roomnumber[i].longstay == 0) {
-		textcolor(12);
-		printf("Error\n");
-		setcolor(9);
-		goto RUN8;	
-	}
+	printf("\nEnter period (\'x\'days):  ");
+    scanf("%d", &roomnumber[i].longstay);
 
 	// Validate checkin
 	isValid = 0;
@@ -101,7 +90,7 @@ void add (int h, int i) {
 		int year = roomnumber[i].checkin.yy;
 
 		//check year
-		if (year >= 2022 && year <= 2100) { 
+		if (year >= 1900 && year <= 2100) { 
 			//check month
 			if (month >= 1 && month <= 12) {
 				//check days
@@ -186,25 +175,34 @@ void add (int h, int i) {
 	printf("4. Service 4 cost 200000\n");
 	printf("5. Service 5 cost 400000\n");
 	printf("\nNote: if you choose service 1 and 2 just type \" 1_1_0_0_0 \" with \"_\" mean space, \"0\" mean you don't want \n");
-	int a;
 	RUN3: printf("Your option: ");
 	fflush(stdin);
+	int a;
 	for (a=1; a<=5; a++){
 		scanf("%d", &roomnumber[i].service_in_use[a]);
 	}
     for (a=1; a<=5; a++){
-	    if (roomnumber[i].service_in_use[a] == 1 ) 			
+	    if (roomnumber[i].service_in_use[a] == 1 ) {			
 				cost_service[a] = list_service[a - 1].price_service;
-		else if(roomnumber[i].service_in_use[a] == 0)
+		} else if(roomnumber[i].service_in_use[a] == 0) {
 				cost_service[a] = 0;
-		else {
+		} else if (a != 5) {
+			printf("%d", a);
+			
 			textcolor(12);
 			printf("ERROR !\n");
 			setcolor(9);
 			goto RUN3;
-		} 
+		} else {
+			textcolor(12);
+			printf("ERROR !\n");
+			setcolor(9);
+			goto RUN3;
+		}
 	}		
 	
+	// if (a != 5) goto RUN3;
+
 	printf("\n---------------------------------------------");		
 	printf("\n\n!!---Please fill this form---!!\n");
 	

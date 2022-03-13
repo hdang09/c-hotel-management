@@ -78,16 +78,20 @@ void add (int h, int i) {
 
 	// Validate longstay
 	char c;
-	RUN8: printf("\nEnter period (\'x\'days): ");
-	fflush(stdin);
-	if (scanf("%d%c", &roomnumber[i].longstay, &c) != 2 
-		|| c != '\n' 
-		|| roomnumber[i].longstay == 0) {
-		textcolor(12);
-		printf("Error\n");
-		setcolor(9);
-		goto RUN8;	
-	}
+		RUN8: printf("\nEnter period (\'x\'days): ");
+		fflush(stdin);
+	    if (scanf("%d%c", &roomnumber[i].longstay, &c) != 2 
+			|| c != '\n' 
+			|| roomnumber[i].longstay == 0) {
+	    	textcolor(12);
+			printf("Error\n");
+			setcolor(9);
+	    	goto RUN8;	
+		}
+
+
+	// printf("\nEnter period (\'x\'days):  ");
+    // scanf("%d", &roomnumber[i].longstay);
 
 	// Validate checkin
 	isValid = 0;

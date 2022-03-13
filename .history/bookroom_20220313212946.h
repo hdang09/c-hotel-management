@@ -75,19 +75,8 @@ void add (int h, int i) {
     printf("=================== ROOM %d ===================\n", i);
     printf("\nPrice per night is %d", cost_room[h].price_per_night); 
 	printf("\nNote: Max people in %s is %d", cost_room[h].type, cost_room[h].max_people );		   
-
-	// Validate longstay
-	char c;
-	RUN8: printf("\nEnter period (\'x\'days): ");
-	fflush(stdin);
-	if (scanf("%d%c", &roomnumber[i].longstay, &c) != 2 
-		|| c != '\n' 
-		|| roomnumber[i].longstay == 0) {
-		textcolor(12);
-		printf("Error\n");
-		setcolor(9);
-		goto RUN8;	
-	}
+	printf("\nEnter period (\'x\'days):  ");
+    scanf("%d", &roomnumber[i].longstay);
 
 	// Validate checkin
 	isValid = 0;
@@ -101,7 +90,7 @@ void add (int h, int i) {
 		int year = roomnumber[i].checkin.yy;
 
 		//check year
-		if (year >= 2022 && year <= 2100) { 
+		if (year >= 1900 && year <= 2100) { 
 			//check month
 			if (month >= 1 && month <= 12) {
 				//check days

@@ -1,13 +1,27 @@
-void view() {
-	FILE *fp;
-//	fp = NULL;
-	char arr[100000], *sexString;
-	fp = fopen("rooms.txt", "r+");
+void cancel() {
+	system("cls");
 
-//	int cost
-	int lineLength = 255, roomNumber, numClient = 1;
+	FILE *f, *t;
+	int isHaveRoom = 0;
+	char roomNumber[10];
+
+//  Check if files are available
+	f = fopen("rooms.txt","r");
+	t = fopen("temp.txt","w");
+	if (f == NULL || t == NULL) exit(0);
+
+//  Input a room to cancel
+	printf("Input a room number to cancle: ");
+	fflush(stdin);
+	scanf("%s", &roomNumber);
+
+	int lineLength = 255;
     char line[lineLength], line2[lineLength]; /* not ISO 90 compatible */
-    while (fgets(line, sizeof(line), fp)) {
+
+	// Loop each line
+    while (fgets(line, sizeof(line), f)) {
+		if (line == "") break;
+
 		// Copy a new string from line to line2
 		strcpy(line2, line);
 
@@ -27,7 +41,7 @@ void view() {
 		s.checkin2.mm = strtol(token, NULL, 10);
 		token = strtok(NULL, ", ");
 		s.checkin2.yy = strtol(token, NULL, 10);
-     
+
 		// - Get checkout
 		token = strtok(NULL, "/");
 		s.checkout2.dd = strtol(token, NULL, 10);
@@ -37,7 +51,7 @@ void view() {
 		s.checkout2.yy = strtol(token, NULL, 10);
 		
 		// - Get name
-		token =  strtok(NULL, ",");
+		token =  strtok(NULL, ", ");
 		if (token != NULL) strcpy(s.name2, token);
 
 		// - Get birthday
@@ -72,69 +86,32 @@ void view() {
 		// - Get total pay
 		token = strtok(NULL, ", ");
 		s.total_pay2 = strtol(token, NULL, 10);
-
-		// Handling
-		if (roomNumber != s.room2) {
-			// Export: Roon number, longstay, checkin, checkout
-			printf("\n\n");
-			for (int i = 0; i < 32; i++) {
-				printf("%c", 205);
-			}
-			printf(" ROOM %d ", s.room2);
-			for (int i = 0; i < 32; i++) {
-				printf("%c", 205);
-			}
-			
-			printf("\nPeriod days : %d\n", s.longstay2);
-			printf("Checkin     : %d/%d/%d\n", s.checkin2.dd, s.checkin2.mm, s.checkin2.yy);
-			printf("Checkout    : %d/%d/%d\n", s.checkout2.dd, s.checkout2.mm, s.checkout2.yy);
-			// Export services
-			printf("\n\nServices in use: \n Service 1 \t Service 2 \t Service 3 \t Service 4 \t Service 5 \n ");
-			for (int a = 0; a < 5; a++) {    	    			
-				if (s.service_in_use2[a] == 1 ) {
-					printf("YES              ");
-				}
-				else {
-					// cost_service[a]= 0;
-					printf("NO              ");		
-				}
-			}
-			// Export total pay
-			printf("\nTotal pay: %d\n", s.total_pay2);
-			roomNumber = s.room2;
-			numClient = 1;
+		
+		// Ckeck each line to find exact room
+		if (atoi(roomNumber) == s.room2) {
+			isHaveRoom = 1;
+			//continue;
+		} 
+		else {
+			// Print to "temp.txt"
+			 fprintf(t, "%s", line2);
 		}
-
-		switch (s.sex2[0]) {
-			case 'f':
-			case 'F':
-				sexString = "Female";
-				break;
-			case 'm':
-			case 'M':
-				sexString = "Male";
-				break;
-			case 'o':
-			case 'O':
-				sexString = "Others";
-				break;	
-			// default:
-			// 	sexString = '';
-		}
-
-		printf("\nPerson %d \n >>----------<< \n Fullname:\t\t%s \n Birthday (mm/dd/yyyy): %d/%d/%d \n Sex: \t\t\t%s \n Phone number:\t\t%d \n Email:\t\t\t%s\n", 
-		numClient,
-		s.name2,
-		s.birth2.dd, s.birth2.mm, s.birth2.yy,
-		sexString,
-		s.phone2,
-		s.email2);   
-		numClient++;
 	}
-	fclose(fp);
-	printf("\nPress anykey to return home screen");
-	getch();
-	system("cls");
-	fflush(stdin);
-	mainMenu();
+
+		// Notification
+		if (isHaveRoom) 
+			printf("Remove successfully!\n");
+		else 
+			printf("The room that you input doesn't exist\n");
+
+		// File handling
+		fclose(f);
+		fclose(t);
+		remove("rooms.txt");
+		rename("temp.txt", "rooms.txt");
+
+		// Go back to main menu
+		printf("Press any key to go back to main menu");
+		getch();
+		mainMenu();
 }

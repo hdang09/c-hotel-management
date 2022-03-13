@@ -111,11 +111,11 @@ void view() {
 				sexString = "Female";
 				break;
 			case 'm':
-			case 'M':
+			case 'm':
 				sexString = "Male";
 				break;
 			case 'o':
-			case 'O':
+			case 'o':
 				sexString = "Others";
 				break;	
 			// default:

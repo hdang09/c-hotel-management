@@ -48,10 +48,10 @@ void cancel() {
 			printf("The room that you input doesn't exist\n");
 
 		// File handling
-		fclose(f);
-		fclose(t);
 		remove("rooms.txt");
 		rename("temp.txt", "rooms.txt");
+		fclose(f);
+		fclose(t);
 
 		// Go back to main menu
 		printf("Press any key to go back to main menu");

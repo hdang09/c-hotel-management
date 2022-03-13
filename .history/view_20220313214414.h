@@ -1,7 +1,7 @@
 void view() {
 	FILE *fp;
 //	fp = NULL;
-	char arr[100000], *sexString;
+	char arr[100000], sexString[6];
 	fp = fopen("rooms.txt", "r+");
 
 //	int cost
@@ -111,11 +111,11 @@ void view() {
 				sexString = "Female";
 				break;
 			case 'm':
-			case 'M':
+			case 'm':
 				sexString = "Male";
 				break;
 			case 'o':
-			case 'O':
+			case 'o':
 				sexString = "Others";
 				break;	
 			// default:
