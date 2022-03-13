@@ -8,23 +8,24 @@ void bookroom() {
 	  
     //Pick room
     RUN1: {
-		ch = "";
+		//ch = "";
 		printf("\n\n    Which room number you choose: ");
 		fflush(stdin);
 		scanf("%d", &i);
 	};
     	
    	//Check status of this room
-	if (roomnumber[i].status == 1 || i > 20 || i < 1) {
+		if (roomnumber[i].status == 1 || i > 20 || i < 1) {
 		printf("The room you choose is not available now or have been booked !\n");
 		printf("\nPlease pick another room >>   \n\n");
-		printf("Return to home press --> \"H\" \nPick another room press --> \"A\" \n >> ");
+		RUN5: printf("\nReturn to home press --> \"H\" \nPick another room press --> \"A\" \n>>> ");
 	    ch = getch();
-		if(ch == 'h' || ch == 'H') {
+        if(ch == 'h' || ch == 'H'){
 			mainMenu();
 		}
+		if (ch == 'a' || ch == 'A')  goto RUN1;
+		if (ch != 'a' || ch != 'A' || ch != 'h' || ch != 'H' )  goto RUN5;
     }
-	if (ch == 'a' || ch == 'A') goto RUN1;
 				
 //======================================================================================
 		
