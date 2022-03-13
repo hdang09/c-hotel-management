@@ -321,8 +321,10 @@ void add (int h, int i) {
 	    roomnumber[i].client.email);   
 	    		
 
-        printf("\n\nDo you want to add one more people press \"Y\" \n If NO press \"N\"");      	     		
+        RUN6:
+	printf("\n\nDo you want to add one more people press \"Y\" \n If NO press \"N\"");      	     		
         printf("\nY/N >>>  ");
+	fflush(stdin);
         ch = getch();
         if (ch == 'N' || ch == 'n') {
 			for (int a = 1; a <= 5; a++) fprintf(fp, "%d, ", roomnumber[i].service_in_use[a]);   	    			
@@ -332,15 +334,16 @@ void add (int h, int i) {
 			// Print total pay to "rooms.txt"	
 			fprintf(fp, "%d\n", roomnumber[i].total_pay);
 		  	break; 
-		} else if (ch == 'Y' || ch == 'y') {
+	}else if (ch == 'Y' || ch == 'y') {
          	roomnumber[i].numclient++;
-     	    if (roomnumber[i].numclient > cost_room[h].max_people) {
+     	        if (roomnumber[i].numclient > cost_room[h].max_people) {
 				textcolor(12);
 				printf("Sorry the room has max people !\n");
 				setcolor(9);
 				break;
-		   }
+		   } 
     	}
+	else goto RUN6;
 
 		// Print to "rooms.txt" file
 		for (int a = 1; a <= 5; a++) fprintf(fp, "%d, ", roomnumber[i].service_in_use[a]);   	    			
