@@ -99,7 +99,9 @@ void registration(void) {
 
     fprintf(log, "%s %s", l.username, l.password);
     fclose(log);
-    printf("\nRegistration Successful!\n");
+    textcolor(14);
+    printf("\n\nRegistration Successful!\n");
+    setcolor(9);
     printf("\nPress any key to continue...");
     getch();
     system("CLS");
